@@ -1,0 +1,16 @@
+{
+  "source": "Unity",
+  "applications": [
+    {
+      "app_key": "application.generated.unity.cableracerworkingtitle.exe",
+      "launch_type": "url",
+      "url": "steam://launch/",
+      "action_manifest_path": "C:\\Git\\CableRacer [WorkingTitle]\\actions.json",
+      "strings": {
+        "en_us": {
+          "name": "CableRacer [WorkingTitle] [Testing]"
+        }
+      }
+    }
+  ]
+}
