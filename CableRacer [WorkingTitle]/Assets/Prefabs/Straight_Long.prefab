@@ -53,8 +53,8 @@ MonoBehaviour:
   - {fileID: 4474471482391535074}
   - {fileID: 4474471482391535072}
   _mainMaterial: {fileID: 2100000, guid: 74f0f743ddb6962488865bbfc6d48255, type: 2}
-  _endConnector: {fileID: 4474471482391535098}
-  _startConnector: {fileID: 4474471482391535046}
+  EndConnector: {fileID: 4474471482391535098}
+  StartConnector: {fileID: 4474471482391535046}
 --- !u!1 &4474471482392019392
 GameObject:
   m_ObjectHideFlags: 0

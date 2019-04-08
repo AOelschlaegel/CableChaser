@@ -7,8 +7,8 @@ public class TileContainer : MonoBehaviour
 	[Header("Setup")]
 	[SerializeField] private List<Transform> _lanes = new List<Transform>();
 	[SerializeField] private Material _mainMaterial;
-	[SerializeField] private Transform _endConnector;
-	[SerializeField] private Transform _startConnector;
+	public Transform EndConnector;
+	public Transform StartConnector;
 
     void Start()
     {
