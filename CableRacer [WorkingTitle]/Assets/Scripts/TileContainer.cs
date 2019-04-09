@@ -9,6 +9,8 @@ public class TileContainer : MonoBehaviour
 	[SerializeField] private Material _mainMaterial;
 	public Transform EndConnector;
 	public Transform StartConnector;
+	public float Angle;
+
 
     void Start()
     {
