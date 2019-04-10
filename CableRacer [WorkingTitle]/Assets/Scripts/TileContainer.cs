@@ -10,6 +10,7 @@ public class TileContainer : MonoBehaviour
 	public Transform EndConnector;
 	public Transform StartConnector;
 	public float Angle;
+	public int Id;
 
 
     void Start()
