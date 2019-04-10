@@ -9,6 +9,9 @@ public class PlayerController : MonoBehaviour
 
 	[SerializeField] private ProceduralGenerator _proceduralGenerator;
 
+	[SerializeField] private TriggerDetection _triggerLeft;
+	[SerializeField] private TriggerDetection _triggerRight;
+
 	public bool isHit;
 	public int CurrentTileId = 0;
 
@@ -18,9 +21,15 @@ public class PlayerController : MonoBehaviour
 	public GameObject CameraRig;
 
 	public float Angle = 0;
+	public float AngleSpeed = 60f;
+	public int TurnSpeed;
 
 	public float mySpeed = 0.5f;
 	public float startTime;
+
+	public bool isKurve = false;
+	public float kurveSpeedMultiplyer = 2f;
+	private float kurveStartTime;
 
 	public void Start()
 	{
@@ -34,24 +43,57 @@ public class PlayerController : MonoBehaviour
 		// Distance moved = time * speed.
 		float timer = (Time.time - startTime) * mySpeed;
 
-		ButtonInput();
+		ControllerInput();
 
 		// Set our position as a fraction of the distance between the markers.
 		transform.position = Vector3.Lerp(startMarker.position, endMarker.position, timer);
 		//transform.position = new Vector3(CameraRig.transform.position.x, -4.3f, CameraRig.transform.position.z);
 		Vector3 relativePos = startMarker.position - endMarker.position;
 
-		var newRotation = Quaternion.LookRotation(relativePos, Vector3.up).eulerAngles;
-		transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newRotation), Time.deltaTime);
+	
+		if (isKurve)
+		{
+			float timerKurve = (Time.time - kurveStartTime) * mySpeed * kurveSpeedMultiplyer;
+
+			var newRotation = Quaternion.LookRotation(relativePos, Vector3.up).eulerAngles;
+			Debug.Log("changed"+ newRotation);
+
+			transform.rotation = Quaternion.Slerp(transform.rotation, Quaternion.Euler(newRotation), timerKurve);
+			//transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+			transform.RotateAround(Vector3.zero, transform.forward, Angle);
+
+			if (timerKurve >= 1)
+			{
+				isKurve = false;
+			}
+		} else
+		{
+			transform.rotation = Quaternion.LookRotation(relativePos, Vector3.up);
+			transform.RotateAround(transform.position, transform.forward, Angle);
+		}
+
+
+
+
+
 		//transform.rotation = Quaternion.Euler(transform.rotation.x, transform.rotation.y, Angle);
 		//transform.RotateAround(transform.position, transform.forward, Time.time * 30f);
-		transform.RotateAround(transform.position, transform.forward, Angle);
+		//Debug.Log("angle = " + Angle);
+
+
 
 		if (timer >= 1f)
 		{
 			CurrentTileId++;
 			startMarker = _proceduralGenerator.SpawnedTiles[CurrentTileId].transform;
 			endMarker = _proceduralGenerator.SpawnedTiles[CurrentTileId + 1].transform;
+			TileContainer newTile = _proceduralGenerator.SpawnedTiles[CurrentTileId].GetComponent<TileContainer>();
+			if (newTile.Angle != 0f)
+			{
+				Debug.Log("Kurve");
+				isKurve = true;
+				kurveStartTime = Time.time;
+			}
 			startTime = Time.time;
 		}
 
@@ -84,33 +126,81 @@ public class PlayerController : MonoBehaviour
 		}
 		*/
 
-		void ButtonInput()
+		void ControllerInput()
 		{
-			if (Input.GetKey(KeyCode.A))
+			if (_triggerLeft.IsTriggered)
+			{
+				Debug.Log("left == right");
+				Angle += AngleSpeed * Time.deltaTime;
+
+			}
+
+			if (_triggerRight.IsTriggered)
+			{
+				Debug.Log("right == left");
+				Angle -= AngleSpeed * Time.deltaTime;
+
+			}
+
+
+			/*
+			if (_triggerLeft.IsTriggered)
 			{
 				JumpLeft();
 			}
 
-			if (Input.GetKey(KeyCode.D))
+			else
+			{
+				Stay();
+			}
+
+			if (_triggerRight.IsTriggered)
 			{
 				JumpRight();
 			}
-		}
 
+			else
+			{
+				Stay();
+			}
+			*/
+		}
+		/*
 		void JumpLeft()
 		{
 			var time = Time.time;
-			float jumpTimer = (Time.time - time) * 2f;
+			float jumpTimer = (Time.time - time) * 100f;
 
-			Angle = Mathf.Lerp(Angle, Angle - 5f, Time.fixedDeltaTime * 20);
+			var newAngle = Angle - TurnSpeed;
+
+			if(newAngle < -1f)
+			{
+				newAngle = -1f;
+			}
+
+			Angle = Mathf.Lerp(Angle, newAngle, Time.fixedDeltaTime * 10000);
 		}
 
 		void JumpRight()
 		{
 			var time = Time.time;
-			float jumpTimer = (Time.time - time);
+			float jumpTimer = (Time.time - time) * 100f;
 
-			Angle = Mathf.Lerp(Angle, Angle + 5f, Time.fixedDeltaTime * 20);
+			var newAngle = Angle + TurnSpeed;
+
+			if (newAngle > 1f)
+			{
+				newAngle = 1f;
+			}
+
+			Angle = Mathf.Lerp(Angle, newAngle, Time.fixedDeltaTime * 10000);
 		}
+
+		void Stay()
+		{
+			var oldAngle = Angle;
+			Angle = oldAngle;
+		}
+		*/
 	}
 }

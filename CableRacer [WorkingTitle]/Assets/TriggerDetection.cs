@@ -5,15 +5,24 @@ using UnityEngine;
 public class TriggerDetection : MonoBehaviour
 {
 	public bool IsTriggered;
+	public bool IsLastTriggered;
+
+	private void Update()
+	{
+		IsLastTriggered = IsTriggered;
+	}
 
 	private void OnTriggerEnter(Collider other)
 	{
-		if(other.tag =="Player")
+		if(other.tag == "Controller")
 		{
 			IsTriggered = true;
 		}
+	}
 
-		else
+	private void OnTriggerExit(Collider other)
+	{
+		if (other.tag == "Controller")
 		{
 			IsTriggered = false;
 		}
