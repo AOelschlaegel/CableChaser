@@ -211,6 +211,7 @@ MonoBehaviour:
   - {fileID: 1255574950120665146}
   - {fileID: 1255574950120665144}
   _obstacleMaterial: {fileID: 2100000, guid: 3d9c1cc66c462254ea3cd6f50d46a985, type: 2}
+  ChosenObstacle: {fileID: 0}
 --- !u!1 &1255574950120665152
 GameObject:
   m_ObjectHideFlags: 0

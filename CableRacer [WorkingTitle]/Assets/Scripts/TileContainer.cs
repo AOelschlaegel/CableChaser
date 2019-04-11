@@ -13,6 +13,8 @@ public class TileContainer : MonoBehaviour
 	public float Angle;
 	public int Id;
 
+	public string Type;
+
 
     void Update()
     {

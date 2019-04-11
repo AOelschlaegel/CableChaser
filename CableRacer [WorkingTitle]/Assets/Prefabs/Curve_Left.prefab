@@ -658,6 +658,7 @@ MonoBehaviour:
   StartConnector: {fileID: 5402673073469012177}
   Angle: 0
   Id: 0
+  Type: Left
 --- !u!1 &5402673073469498615
 GameObject:
   m_ObjectHideFlags: 0

@@ -778,3 +778,4 @@ MonoBehaviour:
   StartConnector: {fileID: 2454061189487151286}
   Angle: 0
   Id: 0
+  Type: Straight
