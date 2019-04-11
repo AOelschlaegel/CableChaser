@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerController_Fixed : MonoBehaviour
 {
-
-
 	[SerializeField] private ProceduralGenerator _proceduralGenerator;
+	[SerializeField] private SoundManager _soundManager;
 
 	[SerializeField] private TriggerDetection _triggerLeft;
 	[SerializeField] private TriggerDetection _triggerRight;
@@ -30,6 +29,7 @@ public class PlayerController_Fixed : MonoBehaviour
 	{
 		startMarker = _proceduralGenerator.SpawnedTiles[CurrentTileId].transform;
 		TileContainer endMarkerScript = _proceduralGenerator.SpawnedTiles[CurrentTileId + 1].GetComponent<TileContainer>();
+		_soundManager = FindObjectOfType<SoundManager>();
 		endMarker = endMarkerScript.EndConnectors[LaneId];
 
 		startTimeTransform = Time.time;
@@ -121,7 +121,6 @@ public class PlayerController_Fixed : MonoBehaviour
 			{
 				LaneId = 0;
 			}
-
 		}
 
 		if (_triggerRight.IsTriggered && _triggerRight.IsTriggered != _triggerRight.IsLastTriggered)
@@ -133,9 +132,5 @@ public class PlayerController_Fixed : MonoBehaviour
 				LaneId = markerScript.EndConnectors.Count - 1;
 			}
 		}
-
-
 	}
-
-	
 }

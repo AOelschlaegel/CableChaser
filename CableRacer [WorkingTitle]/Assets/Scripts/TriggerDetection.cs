@@ -6,6 +6,12 @@ public class TriggerDetection : MonoBehaviour
 {
 	public bool IsTriggered;
 	public bool IsLastTriggered;
+	private SoundManager _soundManager;
+
+	private void Start()
+	{
+		_soundManager = FindObjectOfType<SoundManager>();
+	}
 
 	private void Update()
 	{
@@ -17,6 +23,7 @@ public class TriggerDetection : MonoBehaviour
 		if(other.tag == "Controller")
 		{
 			IsTriggered = true;
+			_soundManager.LaneSwitch();
 		}
 	}
 
