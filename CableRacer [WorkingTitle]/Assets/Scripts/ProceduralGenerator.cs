@@ -8,6 +8,14 @@ public class ProceduralGenerator : MonoBehaviour
 	[SerializeField] private GameObject _curve_Right;
 	[SerializeField] private GameObject _curve_Left;
 
+	[SerializeField] private GameObject _obstacle_Left;
+	[SerializeField] private GameObject _obstacle_Right;
+	[SerializeField] private GameObject _obstacle_Straight;
+
+	private List<GameObject> _obstacles_Left = new List<GameObject>();
+	private List<GameObject> _obstacles_Right = new List<GameObject>();
+	private List<GameObject> _obstacles_Straight = new List<GameObject>();
+
 	public List<GameObject> SpawnedTiles;
 	[SerializeField] private Transform _sceneRoot;
 
@@ -42,10 +50,10 @@ public class ProceduralGenerator : MonoBehaviour
 	{
 		for (int i = 0; i < SpawnCount; i++)
 		{
-			var rand = Random.Range(0, _tiles.Count);
-			var tile = _tiles[rand];
+			var randTile = Random.Range(0, _tiles.Count);
+			var tile = _tiles[randTile];
 
-			switch (rand)
+			switch (randTile)
 			{
 				//Straight
 				case 0:
@@ -68,6 +76,14 @@ public class ProceduralGenerator : MonoBehaviour
 
 					break;
 			}
+		}
+	}
+
+	public void SpawnObstacles()
+	{
+		for (int i = 0; i < SpawnedTiles.Count; i+=5)
+		{
+
 		}
 	}
 

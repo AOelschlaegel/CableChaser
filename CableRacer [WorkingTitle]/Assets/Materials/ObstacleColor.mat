@@ -7,10 +7,10 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: WireFrame_Emissive
+  m_Name: ObstacleColor
   m_Shader: {fileID: 4800000, guid: f41b97872ce3bba439516a22765e895b, type: 3}
   m_ShaderKeywords: _AA_ON _CHANNEL_UV3 _EMISSION _FADE_ON _GLOW_ON _MODE_DEFAULT
-    _QUAD_ON _WLIGHT_SURFACE _WSTYLE_DEFAULT _WUV_UV0
+    _WLIGHT_SURFACE _WSTYLE_DEFAULT _WUV_UV0
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -72,11 +72,11 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _FDist: 0.030199999
+    - _FDist: 0.0072
     - _FMode: 1
-    - _FPow: 1.72
+    - _FPow: 1.82
     - _Fade: 1
-    - _Fold: 15
+    - _Fold: 31
     - _GDist: 0.072
     - _GEmission: 0.12
     - _GPower: 0.67
@@ -89,14 +89,14 @@ Material:
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
-    - _Quad: 1
+    - _Quad: 0
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _TwoSided: 1
     - _UVSec: 0
     - _WEmission: 2.72
-    - _WGloss: 0.521
+    - _WGloss: 0.555
     - _WInvert: 0
     - _WLight: 0
     - _WMetal: 0
@@ -104,12 +104,12 @@ Material:
     - _WOpacity: 1
     - _WParam: 0
     - _WStyle: 0
-    - _WThickness: 0.0006600001
+    - _WThickness: 0.0023100001
     - _WTransparency: 1
     - _WUV: 0
-    - _ZWrite: 4
+    - _ZWrite: 1
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GColor: {r: 0.14509805, g: 0.28235295, b: 1, a: 1}
-    - _WColor: {r: 0, g: 0.5842683, b: 1, a: 1}
+    - _GColor: {r: 0.14509803, g: 1, b: 0.90524566, a: 1}
+    - _WColor: {r: 0, g: 1, b: 0.18252125, a: 1}

@@ -14,7 +14,7 @@ public class TileContainer : MonoBehaviour
 	public int Id;
 
 
-    void Start()
+    void Update()
     {
         foreach(var lane in _lanes)
 		{
