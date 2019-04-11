@@ -8,6 +8,7 @@ public class GameSceneManager : MonoBehaviour
 	[SerializeField] private string _gameOverScene;
 	[SerializeField] private string _startScene;
 
+	public GameObject ViveAll;
 
 	public void LoadGameScene()
 	{
@@ -32,6 +33,7 @@ public class GameSceneManager : MonoBehaviour
 	private IEnumerator LoadScene(string scene)
 	{
 		yield return new WaitForSeconds(2f);
+		//Destroy(ViveAll);
 		SceneManager.LoadScene(scene);
 	}
 }
