@@ -38,7 +38,8 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.0050160177, g: 0.000072115436, b: 0.0014516731, a: 1}
+  m_IndirectSpecularColor: {r: 0.0003430045, g: 0.000009655984, b: 0.00003578266,
+    a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -490,7 +491,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f0c98cc0b661ea49b1536fe403411d1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -599,7 +600,7 @@ PrefabInstance:
     - target: {fileID: 5577883599526432717, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -2.34
       objectReference: {fileID: 0}
     - target: {fileID: 5577883599526432717, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
@@ -655,6 +656,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577883600208181387, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 5577883600209898939, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_ForceIntoRT
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0670c4121f39e46a3164a1dda791bc, type: 3}
@@ -739,6 +750,95 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b7439cd3667d346819e3651f92aa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1262390736 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5577883600208181387, guid: 6c0670c4121f39e46a3164a1dda791bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 600681639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &1262390737 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 5577883600208354685, guid: 6c0670c4121f39e46a3164a1dda791bc,
+    type: 3}
+  m_PrefabInstance: {fileID: 600681639}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1262390738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262390736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b9a305e18de0c04dbd257a21cd47087, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sharedProfile: {fileID: 11400000, guid: e7d1d26f4ad615e4daca1ac88508abca, type: 2}
+  isGlobal: 1
+  blendDistance: 0
+  weight: 1
+  priority: 0
+--- !u!114 &1262390739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1262390736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 948f4100a11a5c24981795d21301da5c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  volumeTrigger: {fileID: 1262390737}
+  volumeLayer:
+    serializedVersion: 2
+    m_Bits: 256
+  stopNaNPropagation: 1
+  finalBlitToCameraTarget: 1
+  antialiasingMode: 0
+  temporalAntialiasing:
+    jitterSpread: 0.75
+    sharpness: 0.25
+    stationaryBlending: 0.95
+    motionBlending: 0.85
+  subpixelMorphologicalAntialiasing:
+    quality: 2
+  fastApproximateAntialiasing:
+    fastMode: 0
+    keepAlpha: 0
+  fog:
+    enabled: 1
+    excludeSkybox: 1
+  debugLayer:
+    lightMeter:
+      width: 512
+      height: 256
+      showCurves: 1
+    histogram:
+      width: 512
+      height: 256
+      channel: 3
+    waveform:
+      exposure: 0.12
+      height: 256
+    vectorscope:
+      size: 256
+      exposure: 0.12
+    overlaySettings:
+      linearDepth: 0
+      motionColorIntensity: 4
+      motionGridSize: 64
+      colorBlindnessType: 0
+      colorBlindnessStrength: 1
+  m_Resources: {fileID: 11400000, guid: d82512f9c8e5d4a4d938b575d47f88d4, type: 2}
+  m_ShowToolkit: 0
+  m_ShowCustomSorter: 0
+  breakBeforeColorGrading: 0
+  m_BeforeTransparentBundles: []
+  m_BeforeStackBundles: []
+  m_AfterStackBundles: []
 --- !u!1001 &1555199179
 PrefabInstance:
   m_ObjectHideFlags: 0

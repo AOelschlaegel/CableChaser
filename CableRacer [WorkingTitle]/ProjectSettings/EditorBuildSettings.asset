@@ -6,14 +6,14 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Start.unity
+    guid: 5e65ba726037dde4bb5be112c691d0d4
+  - enabled: 1
     path: Assets/Scenes/GameScene.unity
     guid: d63844999b27ac2439f9c7bd3cebcb83
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: 00d4c6bc5fb26344ebb455b46544755b
-  - enabled: 1
-    path: Assets/Scenes/Start.unity
-    guid: 5e65ba726037dde4bb5be112c691d0d4
   - enabled: 1
     path: Assets/Dependencies/HTC.UnityPlugin/ViveInputUtility/Examples/1.UGUI/UGUI.unity
     guid: b03e8710d3fd2d2409d15ea452c579f3

@@ -10,6 +10,8 @@ public class PlayerController_Fixed : MonoBehaviour
 	[SerializeField] private TriggerDetection _triggerLeft;
 	[SerializeField] private TriggerDetection _triggerRight;
 
+	private ColorManager _colorManager;
+
 	public int CurrentTileId = 0;
 	public int LaneId = 0;
 
@@ -30,6 +32,7 @@ public class PlayerController_Fixed : MonoBehaviour
 		startMarker = _proceduralGenerator.SpawnedTiles[CurrentTileId].transform;
 		TileContainer endMarkerScript = _proceduralGenerator.SpawnedTiles[CurrentTileId + 1].GetComponent<TileContainer>();
 		_soundManager = FindObjectOfType<SoundManager>();
+		_colorManager = FindObjectOfType<ColorManager>();
 		endMarker = endMarkerScript.EndConnectors[LaneId];
 
 		startTimeTransform = Time.time;
@@ -69,42 +72,64 @@ public class PlayerController_Fixed : MonoBehaviour
 
 				mySpeedRotation = 4f;
 				mySpeedTransform = 4f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+
 				break;
 
 			case 50:
 
 				mySpeedRotation = 5f;
 				mySpeedTransform = 5f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 
 			case 100:
 
 				mySpeedRotation = 6f;
 				mySpeedTransform = 6f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 
 			case 200:
 
 				mySpeedRotation = 7f;
 				mySpeedTransform = 7f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 
 			case 400:
 
 				mySpeedRotation = 8f;
 				mySpeedTransform = 8f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 
 			case 800:
 
 				mySpeedRotation = 9f;
 				mySpeedTransform = 9f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 
 			case 1600:
 
 				mySpeedRotation = 10f;
 				mySpeedTransform = 10f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 				break;
 		}
 	}

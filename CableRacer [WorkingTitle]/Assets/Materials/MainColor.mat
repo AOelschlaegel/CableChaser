@@ -12,7 +12,7 @@ Material:
   m_ShaderKeywords: _AA_ON _ALPHAPREMULTIPLY_ON _CHANNEL_UV3 _EMISSION _FADE_ON _GLOW_ON
     _MODE_DEFAULT _QUAD_ON _SMOOTHNESS_TEXTURE_ALBEDO_CHANNEL_A _WLIGHT_SURFACE _WSTYLE_SMOOTH
     _WUV_UV0
-  m_LightmapFlags: 1
+  m_LightmapFlags: 2
   m_EnableInstancingVariants: 1
   m_DoubleSidedGI: 0
   m_CustomRenderQueue: 3000
@@ -78,7 +78,7 @@ Material:
     - _FMode: 1
     - _FPow: 1.72
     - _Fade: 1
-    - _Fold: 6
+    - _Fold: 2
     - _GDist: 0.206
     - _GEmission: 0.19
     - _GPower: 0.36
@@ -111,7 +111,7 @@ Material:
     - _WUV: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 0, g: 0, b: 0, a: 0.9098039}
+    - _Color: {r: 0, g: 0, b: 0, a: 0.9411765}
     - _EmissionColor: {r: 0.0005284927, g: 0.0003561581, b: 0.0003561581, a: 1}
-    - _GColor: {r: 0.48584908, g: 0.56839633, b: 1, a: 1}
+    - _GColor: {r: 0.5424528, g: 0.61580014, b: 1, a: 1}
     - _WColor: {r: 0.44811308, g: 0.77058834, b: 1, a: 1}
