@@ -117,12 +117,7 @@ public class ProceduralGenerator : MonoBehaviour
 					break;
 			}
 
-			if (i % ObstacleSpawnDivider == 0 && i != 0)
-			{
-				Debug.Log("TileId:" + tileId);
-				
-					SpawnObstacles();
-			}
+			
 		}
 	}
 
@@ -136,6 +131,11 @@ public class ProceduralGenerator : MonoBehaviour
 	{
 		for (int i = 0; i < spawnChance; i++)
 		{
+			if (i % ObstacleSpawnDivider == 0 && i != 0)
+			{
+				SpawnObstacles();
+			}
+
 			var instanceStartpoint = tile.GetComponent<TileContainer>().StartConnector;
 			var formerTileContainer = SpawnedTiles[SpawnedTiles.Count - 1].GetComponent<TileContainer>();
 			var newInstance = Instantiate(tile, formerTileContainer.EndConnector.transform.position, formerTileContainer.EndConnector.transform.rotation);

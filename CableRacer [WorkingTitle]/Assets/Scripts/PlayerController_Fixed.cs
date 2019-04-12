@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class PlayerController_Fixed : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 	[SerializeField] private TriggerDetection _triggerLeft;
 	[SerializeField] private TriggerDetection _triggerRight;
+
+	[SerializeField] private TextMeshProUGUI _score;
 
 	private ColorManager _colorManager;
 
@@ -37,10 +40,20 @@ public class PlayerController_Fixed : MonoBehaviour
 
 		startTimeTransform = Time.time;
 		startTimeRotation = Time.time;
+
+		_score.enabled = false;
 	}
 
 	public void Update()
 	{
+
+
+		if (CurrentTileId > 0)
+		{
+			_score.enabled = true;
+			_score.text = (CurrentTileId * 10).ToString();
+		}
+
 		ControllerInput();
 
 		// Lerp Transform
@@ -68,7 +81,7 @@ public class PlayerController_Fixed : MonoBehaviour
 
 		switch(CurrentTileId)
 		{
-			case 25:
+			case 30:
 
 				mySpeedRotation = 4f;
 				mySpeedTransform = 4f;
@@ -78,7 +91,7 @@ public class PlayerController_Fixed : MonoBehaviour
 
 				break;
 
-			case 50:
+			case 60:
 
 				mySpeedRotation = 5f;
 				mySpeedTransform = 5f;
@@ -87,16 +100,19 @@ public class PlayerController_Fixed : MonoBehaviour
 				_colorManager.ChangeObstacleColor();
 				break;
 
-			case 100:
+			case 90:
 
 				mySpeedRotation = 6f;
 				mySpeedTransform = 6f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
+
+				_proceduralGenerator.ObstacleSpawnDivider = 4;
+
 				break;
 
-			case 200:
+			case 120:
 
 				mySpeedRotation = 7f;
 				mySpeedTransform = 7f;
@@ -105,16 +121,18 @@ public class PlayerController_Fixed : MonoBehaviour
 				_colorManager.ChangeObstacleColor();
 				break;
 
-			case 400:
+			case 150:
 
 				mySpeedRotation = 8f;
 				mySpeedTransform = 8f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
+
+				_proceduralGenerator.ObstacleSpawnDivider = 5;
 				break;
 
-			case 800:
+			case 250:
 
 				mySpeedRotation = 9f;
 				mySpeedTransform = 9f;
@@ -123,13 +141,15 @@ public class PlayerController_Fixed : MonoBehaviour
 				_colorManager.ChangeObstacleColor();
 				break;
 
-			case 1600:
+			case 400:
 
 				mySpeedRotation = 10f;
 				mySpeedTransform = 10f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
+
+				_proceduralGenerator.ObstacleSpawnDivider = 6;
 				break;
 		}
 	}

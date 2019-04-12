@@ -67,7 +67,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _AASmooth: 1.136
+    - _AASmooth: 1.6
     - _BumpScale: 1
     - _Channel: 0
     - _Cull: 2
@@ -78,7 +78,7 @@ Material:
     - _FMode: 1
     - _FPow: 1.72
     - _Fade: 1
-    - _Fold: 2
+    - _Fold: 5
     - _GDist: 0.206
     - _GEmission: 0.19
     - _GPower: 0.36
@@ -104,7 +104,7 @@ Material:
     - _WMetal: 0
     - _WMode: 0
     - _WOpacity: 1
-    - _WParam: 0.3088
+    - _WParam: 0.314
     - _WStyle: 1
     - _WThickness: 0
     - _WTransparency: 1
@@ -113,5 +113,5 @@ Material:
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0.9411765}
     - _EmissionColor: {r: 0.0005284927, g: 0.0003561581, b: 0.0003561581, a: 1}
-    - _GColor: {r: 0.5424528, g: 0.61580014, b: 1, a: 1}
-    - _WColor: {r: 0.44811308, g: 0.77058834, b: 1, a: 1}
+    - _GColor: {r: 0.5424528, g: 0.61675537, b: 1, a: 1}
+    - _WColor: {r: 0.74730766, g: 0.48152548, b: 0.7846415, a: 0.95}

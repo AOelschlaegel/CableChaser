@@ -27,6 +27,8 @@ public class ObstacleTriggerDetection : MonoBehaviour
 			_sceneManager.LoadGameOverScene();
 			_uIManager.TransitionOut();
 			_soundManager.CollisionSound();
+
+			PlayerPrefs.SetInt("Score", _playerController.CurrentTileId * 10);
 		}
 	}
 }
