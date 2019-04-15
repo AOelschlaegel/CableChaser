@@ -14,9 +14,9 @@ public class ProceduralGenerator : MonoBehaviour
 
 	[SerializeField] private PlayerController_Fixed _playerController;
 
-	private List<GameObject> _obstacles_Left = new List<GameObject>();
-	private List<GameObject> _obstacles_Right = new List<GameObject>();
-	private List<GameObject> _obstacles_Straight = new List<GameObject>();
+	private List<GameObject> _obstaclesLeft = new List<GameObject>();
+	private List<GameObject> _obstaclesRight = new List<GameObject>();
+	private List<GameObject> _obstaclesStraight = new List<GameObject>();
 
 	public List<GameObject> SpawnedTiles;
 	public List<GameObject> SpawnedObstacles = new List<GameObject>();
@@ -35,7 +35,8 @@ public class ProceduralGenerator : MonoBehaviour
 	public int division = 2;
 
 	#region UnityEvents
-	void Awake()
+
+	private void Awake()
 	{
 		_tiles = new List<GameObject>();
 		SpawnedTiles = new List<GameObject>();
@@ -63,9 +64,6 @@ public class ProceduralGenerator : MonoBehaviour
 			GenerateTiles();
 			DeactivateTiles(tileId);
 		}
-
-		var mod = division % 3;
-		Debug.Log(mod);
 	}
 
 	void DeactivateTiles(int tileId)
@@ -78,46 +76,34 @@ public class ProceduralGenerator : MonoBehaviour
 		LastDeletedIndex += DeleteThreshold;
 	}
 
-	void DeactivateObstacles()
-	{
-
-	}
-
 	#endregion
 
 	public void GenerateTiles()
 	{
-		for (int i = 0; i < SpawnCount; i++)
+		for (var i = 0; i < SpawnCount; i++)
 		{
 			var randTile = Random.Range(0, _tiles.Count);
 			var tile = _tiles[randTile];
 			var tileId = tile.GetComponent<TileContainer>().Id;
 
+			int spawnChance;
 			switch (randTile)
 			{
-				//Straight
 				case 0:
-					var spawnChance = Random.Range(5, StraightSpawnChance);
+				{
+					spawnChance = Random.Range(5, StraightSpawnChance);
 					SpawnTile(tile, i, spawnChance);
-
 					break;
-
-				//Curve Right
+				}
 				case 1:
 					spawnChance = Random.Range(1, CurveSpawnChance);
 					SpawnTile(tile, i, spawnChance);
-
 					break;
-
-				//Curve Left
 				case 2:
 					spawnChance = Random.Range(1, CurveSpawnChance);
 					SpawnTile(tile, i, spawnChance);
-
 					break;
 			}
-
-			
 		}
 	}
 
@@ -129,14 +115,12 @@ public class ProceduralGenerator : MonoBehaviour
 
 	private void SpawnTile(GameObject tile, int formerTileIndex, int spawnChance)
 	{
-		for (int i = 0; i < spawnChance; i++)
+		for (var i = 0; i < spawnChance; i++)
 		{
 			if (i % ObstacleSpawnDivider == 0 && i != 0)
 			{
 				SpawnObstacles();
 			}
-
-			var instanceStartpoint = tile.GetComponent<TileContainer>().StartConnector;
 			var formerTileContainer = SpawnedTiles[SpawnedTiles.Count - 1].GetComponent<TileContainer>();
 			var newInstance = Instantiate(tile, formerTileContainer.EndConnector.transform.position, formerTileContainer.EndConnector.transform.rotation);
 			newInstance.transform.SetParent(_sceneRoot);
