@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -92,16 +92,16 @@ public class ProceduralGenerator : MonoBehaviour
 				case 0:
 				{
 					spawnChance = Random.Range(5, StraightSpawnChance);
-					SpawnTile(tile, i, spawnChance);
+					SpawnTile(tile, spawnChance);
 					break;
 				}
 				case 1:
 					spawnChance = Random.Range(1, CurveSpawnChance);
-					SpawnTile(tile, i, spawnChance);
+					SpawnTile(tile, spawnChance);
 					break;
 				case 2:
 					spawnChance = Random.Range(1, CurveSpawnChance);
-					SpawnTile(tile, i, spawnChance);
+					SpawnTile(tile, spawnChance);
 					break;
 			}
 		}
@@ -113,7 +113,7 @@ public class ProceduralGenerator : MonoBehaviour
 		var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
 	}
 
-	private void SpawnTile(GameObject tile, int formerTileIndex, int spawnChance)
+	private void SpawnTile(GameObject tile, int spawnChance)
 	{
 		for (var i = 0; i < spawnChance; i++)
 		{
