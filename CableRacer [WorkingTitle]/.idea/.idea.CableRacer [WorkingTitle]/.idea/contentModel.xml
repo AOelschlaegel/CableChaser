@@ -722,6 +722,7 @@
           </e>
         </e>
         <e p="EndScreen.cs" t="Include" />
+        <e p="LevelContainer.cs" t="Include" />
         <e p="LevelGenerator.cs" t="Include" />
         <e p="ObstacleDisabler.cs" t="Include" />
         <e p="Scripts" t="Include">
