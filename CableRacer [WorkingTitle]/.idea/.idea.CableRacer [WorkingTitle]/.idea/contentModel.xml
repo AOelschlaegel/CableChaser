@@ -5,7 +5,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="ColorManager.cs" t="Include" />
         <e p="Dependencies" t="Include">
           <e p="CurvedUI" t="Include">
             <e p="Demo Scenes" t="Include">
@@ -721,27 +720,25 @@
             </e>
           </e>
         </e>
-        <e p="EndScreen.cs" t="Include" />
-        <e p="LevelContainer.cs" t="Include" />
-        <e p="LevelGenerator.cs" t="Include" />
-        <e p="ObstacleDisabler.cs" t="Include" />
         <e p="Scripts" t="Include">
-          <e p="Deprecated" t="Include">
-            <e p="PlayerController.cs" t="Include" />
-          </e>
+          <e p="ColorManager.cs" t="Include" />
+          <e p="EndScreen.cs" t="Include" />
           <e p="GameManager.cs" t="Include" />
           <e p="GameSceneManager.cs" t="Include" />
+          <e p="LevelContainer.cs" t="Include" />
+          <e p="LevelGenerator.cs" t="Include" />
           <e p="ObstacleContainer.cs" t="Include" />
+          <e p="ObstacleDisabler.cs" t="Include" />
           <e p="ObstacleTriggerDetection.cs" t="Include" />
-          <e p="PlayerController_Fixed.cs" t="Include" />
+          <e p="PlayerController_Endless.cs" t="Include" />
+          <e p="PlayerController_Level.cs" t="Include" />
           <e p="ProceduralGenerator.cs" t="Include" />
+          <e p="SoundManager.cs" t="Include" />
           <e p="StartScreen.cs" t="Include" />
           <e p="TileContainer.cs" t="Include" />
           <e p="TriggerDetection.cs" t="Include" />
           <e p="UIManager.cs" t="Include" />
-          <e p="WorldController.cs" t="Include" />
         </e>
-        <e p="SoundManager.cs" t="Include" />
         <e p="SteamVR_Input" t="Include">
           <e p="ActionSetClasses" t="Include">
             <e p="SteamVR_Input_ActionSet_buggy.cs" t="Include" />

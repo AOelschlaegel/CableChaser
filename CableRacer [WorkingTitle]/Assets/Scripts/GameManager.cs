@@ -5,17 +5,33 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {
 	private UIManager _uiManager;
-	private PlayerController_Fixed _playerController;
+	private PlayerController_Level _playerControllerLevel;
+	private PlayerController_Endless _playerControllerEndless;
 	private SoundManager _soundManager;
+	public bool EndlessMode;
 
-    void Start()
+    void Awake()
     {
 		_uiManager = FindObjectOfType<UIManager>();
-		_playerController = FindObjectOfType<PlayerController_Fixed>();
-		_soundManager = FindObjectOfType<SoundManager>();
 
-		_playerController.mySpeedTransform = 0f;
-		_playerController.mySpeedRotation = 0f;
+		// Look for which mode is Played
+
+		if (FindObjectOfType<PlayerController_Endless>())
+		{
+			_playerControllerEndless = FindObjectOfType<PlayerController_Endless>();
+			_playerControllerEndless.TransformSpeed = 0f;
+			_playerControllerEndless.RotationSpeed = 0f;
+			EndlessMode = true;
+		}
+		else
+		{
+			_playerControllerLevel = FindObjectOfType<PlayerController_Level>();
+			_playerControllerLevel.TransformSpeed = 0f;
+			_playerControllerLevel.RotationSpeed = 0f;
+			EndlessMode = false;
+		}
+		
+		_soundManager = FindObjectOfType<SoundManager>();
 
 		_uiManager.TransitionIn();
 		
@@ -30,8 +46,16 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		_playerController.mySpeedTransform = 4f;
-		_playerController.mySpeedRotation = 4f;
+		if (EndlessMode)
+		{
+			_playerControllerEndless.TransformSpeed = _playerControllerEndless.TransformSpeed;
+			_playerControllerEndless.RotationSpeed = _playerControllerEndless.RotationSpeed;
+		}
+		else
+		{
+			_playerControllerLevel.SetSpeed();
+		}
+		
 		_soundManager.GameMusic();
 	}
 }
