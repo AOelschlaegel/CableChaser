@@ -45,5 +45,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _endlessScene: '[Mode]Endless'
   _levelScene: '[Mode]Level'
-  _gameOverScene: GameOverScreen
+  _gameOverScene_Endless: GameOverScreen_Endless
+  _gameOverScene_Level: GameOverScreen_Level
   _startScene: StartScreen

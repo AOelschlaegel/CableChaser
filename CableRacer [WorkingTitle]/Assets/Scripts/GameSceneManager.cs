@@ -6,7 +6,8 @@ public class GameSceneManager : MonoBehaviour
 {
 	[SerializeField] private string _endlessScene;
 	[SerializeField] private string _levelScene;
-	[SerializeField] private string _gameOverScene;
+	[SerializeField] private string _gameOverScene_Endless;
+	[SerializeField] private string _gameOverScene_Level;
 	[SerializeField] private string _startScene;
 
 	private UIManager _uiManager;
@@ -21,9 +22,14 @@ public class GameSceneManager : MonoBehaviour
 		StartCoroutine(LoadScene(_levelScene));
 	}
 
-	public void LoadGameOverScene()
+	public void LoadGameOverScene_Endless()
 	{
-		StartCoroutine(LoadScene(_gameOverScene));
+		StartCoroutine(LoadScene(_gameOverScene_Endless));
+	}
+	
+	public void LoadGameOverScene_Level()
+	{
+		StartCoroutine(LoadScene(_gameOverScene_Level));
 	}
 
 	public void LoadEndlessScene()
