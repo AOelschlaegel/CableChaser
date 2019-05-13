@@ -206,6 +206,7 @@ MonoBehaviour:
   gazeTimedClickProgressImage: {fileID: 0}
   worldSpaceMouseSensitivity: 1
   usedHand: 1
+  controllerTransformOverride: {fileID: 0}
 --- !u!1 &151320848
 GameObject:
   m_ObjectHideFlags: 0
@@ -249,6 +250,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7c47cd68af3569d4ea4f01bc065d9c15, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  EndlessMode: 0
 --- !u!1 &194992399
 GameObject:
   m_ObjectHideFlags: 0
@@ -467,10 +469,12 @@ MonoBehaviour:
   startMarker: {fileID: 0}
   endMarker: {fileID: 0}
   CameraRig: {fileID: 1738060912}
-  mySpeedTransform: 3
+  TransformSpeed: 3
   startTimeTransform: 0
-  mySpeedRotation: 3
+  RotationSpeed: 3
   startTimeRotation: 0
+  isScreen: 0
+  _speed: 0.5
 --- !u!224 &647706222 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
@@ -487,7 +491,7 @@ PrefabInstance:
     - target: {fileID: 5577883599526432718, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
       propertyPath: m_Name
-      value: VROrigin
+      value: PlayerController
       objectReference: {fileID: 0}
     - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
@@ -1612,6 +1616,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: ProceduralGenerator
       objectReference: {fileID: 0}
+    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
+        type: 3}
+      propertyPath: _playerController
+      value: 
+      objectReference: {fileID: 618154383}
+    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
+        type: 3}
+      propertyPath: _sceneRoot
+      value: 
+      objectReference: {fileID: 194992400}
+    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
+        type: 3}
+      propertyPath: playerControllerEndless
+      value: 
+      objectReference: {fileID: 618154383}
     - target: {fileID: 1855647537739235563, guid: 1cd0c98582b040d47bc9a8727d2502ba,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1667,16 +1686,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
-        type: 3}
-      propertyPath: _playerController
-      value: 
-      objectReference: {fileID: 618154383}
-    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
-        type: 3}
-      propertyPath: _sceneRoot
-      value: 
-      objectReference: {fileID: 194992400}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1cd0c98582b040d47bc9a8727d2502ba, type: 3}
 --- !u!1001 &6091728897199588805

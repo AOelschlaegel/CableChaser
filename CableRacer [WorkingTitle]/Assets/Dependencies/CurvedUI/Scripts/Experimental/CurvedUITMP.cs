@@ -3,7 +3,7 @@ using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
-#if CURVEDUI_TMP 
+#if CURVEDUI_TMP || TMP_PRESENT
 using TMPro;
 #endif 
 
@@ -15,85 +15,81 @@ namespace CurvedUI
     public class CurvedUITMP : MonoBehaviour
     {
 
-#if CURVEDUI_TMP
+#if CURVEDUI_TMP || TMP_PRESENT
 
         //internal
         CurvedUIVertexEffect crvdVE;
-        TextMeshProUGUI tmp;
+        TextMeshProUGUI tmpText;
         CurvedUISettings mySettings;
-        Mesh savedMesh;
-        VertexHelper vh;
+        Mesh m_savedMesh;
+        VertexHelper m_vh;
+        List<UIVertex> m_flatSavedVerts = new List<UIVertex>();
+
 
         Vector2 savedSize;
         Vector3 savedUp;
         Vector3 savedPos;
+        Vector3 savedLocalScale;
         List<CurvedUITMPSubmesh> subMeshes = new List<CurvedUITMPSubmesh>(); 
 
-        [HideInInspector]
         public bool Dirty = false; // set this to true to force mesh update.
 
         bool curvingRequired = false;
         bool tesselationRequired = false;
 
-        void FindTMP()
+
+
+        #region LIFECYCLE
+        void Start()
         {
-            if (this.GetComponent<TextMeshProUGUI>() != null)
-            {
-                tmp = this.gameObject.GetComponent<TextMeshProUGUI>();
-                crvdVE = this.gameObject.GetComponent<CurvedUIVertexEffect>();
+            if (mySettings == null)
                 mySettings = GetComponentInParent<CurvedUISettings>();
-                transform.hasChanged = false;
-
-                FindSubmeshes();
-            }
         }
 
-        void FindSubmeshes()
-        {
-            foreach (TMP_SubMeshUI sub in GetComponentsInChildren<TMP_SubMeshUI>())
-            {
-                CurvedUITMPSubmesh msh = sub.gameObject.AddComponentIfMissing<CurvedUITMPSubmesh>();
-                if(!subMeshes.Contains(msh))
-                    subMeshes.Add(msh);
-            }
-        }
 
         void OnEnable()
         {
-
             FindTMP();
 
-            if (tmp != null)
-                tmp.RegisterDirtyMaterialCallback(TesselationRequiredCallback);
+            if (tmpText)
+            {
+                tmpText.RegisterDirtyMaterialCallback(TesselationRequiredCallback);
+                TMPro_EventManager.TEXT_CHANGED_EVENT.Add(TMPTextChangedCallback);
+            }
         }
+
 
         void OnDisable()
         {
-            if (tmp != null)
-                tmp.UnregisterDirtyMaterialCallback(TesselationRequiredCallback);
-        }
-
-
-        void TesselationRequiredCallback()
-        {
-            tesselationRequired = true;
-            curvingRequired = true;
+            if (tmpText)
+            {
+                tmpText.UnregisterDirtyMaterialCallback(TesselationRequiredCallback);
+                TMPro_EventManager.TEXT_CHANGED_EVENT.Remove(TMPTextChangedCallback);
+            }   
         }
 
 
         void LateUpdate()
         {
+            //if we're missing stuff, find it
+            if(!tmpText) FindTMP();
+
 
             //Edit Mesh on TextMeshPro component
-            if (tmp != null)
+            if (tmpText)
             {
 
-                if (tmp.havePropertiesChanged)
+                //if (!Application.isPlaying)
+                //    tesselationRequired = true;
+
+
+                if (savedSize != (transform as RectTransform).rect.size)
                 {
                     tesselationRequired = true;
-                    // Debug.Log("prop changed");
+                    //Debug.Log("size changed");
+
                 }
-                else if (savedSize != (transform as RectTransform).rect.size)
+                else if (savedLocalScale != mySettings.transform.localScale)
                 {
                     tesselationRequired = true;
                     //Debug.Log("size changed");
@@ -109,35 +105,39 @@ namespace CurvedUI
                 {
                     curvingRequired = true;
                     // Debug.Log("up changed");
-
                 }
 
 
-                if (Dirty || tesselationRequired || savedMesh == null || vh == null || (curvingRequired && !Application.isPlaying))
+                if (Dirty || tesselationRequired || m_savedMesh == null || m_vh == null || (curvingRequired && !Application.isPlaying))
                 {
-                    //Modify the mesh
-                    //Debug.Log("meshing TMP");
-                    tmp.renderMode = TMPro.TextRenderFlags.Render;
-                    tmp.ForceMeshUpdate();
-                    vh = new VertexHelper(tmp.mesh);
+
+                    //Get the mesh from TMP object.
+                    tmpText.renderMode = TMPro.TextRenderFlags.Render;
+                    tmpText.ForceMeshUpdate();
+                    if(m_vh != null) m_vh.Dispose();
+                    m_vh = new VertexHelper(tmpText.mesh);
+
+                    //store a copy of flat UIVertices for later so we dont have to retrieve the Mesh every framee.
+                    m_vh.GetUIVertexStream(m_flatSavedVerts);
+
+                    //Tesselate and Curve the flat UIVertices stored in Vertex Helper
                     crvdVE.TesselationRequired = true;
-#if UNITY_5_1
-				    crvdVE.ModifyMesh(vh.GetUIVertexStream);
-#else
-                    crvdVE.ModifyMesh(vh);
-#endif
+                    crvdVE.ModifyMesh(m_vh);
 
 
-                    //upload mesh to TMP Object
-                    savedMesh = new Mesh();
-                    vh.FillMesh(savedMesh);
-                    tmp.renderMode = TMPro.TextRenderFlags.DontRender;
+                    //fill the mesh with curved UIVertices
+                    if (!m_savedMesh) m_savedMesh = new Mesh();
+                    m_savedMesh.Clear();
+                    m_vh.FillMesh(m_savedMesh);
+                    tmpText.renderMode = TMPro.TextRenderFlags.DontRender;
 
                     //reset flags
                     tesselationRequired = false;
+                    curvingRequired = false;
                     Dirty = false;
 
                     //save current data
+                    savedLocalScale = mySettings.transform.localScale;
                     savedSize = (transform as RectTransform).rect.size;
                     savedUp = mySettings.transform.worldToLocalMatrix.MultiplyVector(transform.up);
                     savedPos = mySettings.transform.worldToLocalMatrix.MultiplyPoint3x4(transform.position);
@@ -151,38 +151,85 @@ namespace CurvedUI
 
                 if (curvingRequired)
                 {
-                    // Debug.Log("curving TMP");
+                    //fill the VertexHelper with stored flat mesh
+                    m_vh.Clear();
+                    m_vh.AddUIVertexTriangleStream(m_flatSavedVerts);
+
+                    //curve Mesh stored in VertexHelper with CurvedUIVertexEffect
                     crvdVE.TesselationRequired = false;
                     crvdVE.CurvingRequired = true;
+                    crvdVE.ModifyMesh(m_vh);
 
-#if UNITY_5_1
-                    crvdVE.ModifyMesh(vh.GetUIVertexStream);
-#else
-                    crvdVE.ModifyMesh(vh);
-#endif
-                    //fill mesh to VertexHelper
-                    vh.FillMesh(savedMesh);
+                    //Fill the mesh we're going to upload to TMP object with already curved UIVertices
+                    m_savedMesh.Clear();
+                    m_vh.FillMesh(m_savedMesh);
 
                     //reset flags
                     curvingRequired = false;
 
                     //save current data
-                    savedSize = (transform as RectTransform).rect.size;
+                    savedLocalScale = mySettings.transform.localScale;
                     savedUp = mySettings.transform.worldToLocalMatrix.MultiplyVector(transform.up);
                     savedPos = mySettings.transform.worldToLocalMatrix.MultiplyPoint3x4(transform.position);
 
                     //prompt submeshes to update
                     foreach (CurvedUITMPSubmesh mesh in subMeshes)
-                        mesh.UpdateSubmesh(false, true);
+                        mesh.UpdateSubmesh(false, true);     
                 }
 
-                tmp.canvasRenderer.SetMesh(savedMesh);
-
-            }
-            else {
-                FindTMP();
+                //upload mesh to TMP Object
+                tmpText.canvasRenderer.SetMesh(m_savedMesh);
             }
         }
+        #endregion
+
+
+
+
+
+        #region PRIVATE
+        void FindTMP()
+        {
+            if (this.GetComponent<TextMeshProUGUI>() != null)
+            {
+                tmpText = this.gameObject.GetComponent<TextMeshProUGUI>();
+                crvdVE = this.gameObject.GetComponent<CurvedUIVertexEffect>();
+                mySettings = GetComponentInParent<CurvedUISettings>();
+                transform.hasChanged = false;
+
+                FindSubmeshes();
+            }
+        }
+
+        void FindSubmeshes()
+        {
+            foreach (TMP_SubMeshUI sub in GetComponentsInChildren<TMP_SubMeshUI>())
+            {
+                CurvedUITMPSubmesh msh = sub.gameObject.AddComponentIfMissing<CurvedUITMPSubmesh>();
+                if (!subMeshes.Contains(msh))
+                    subMeshes.Add(msh);
+            }
+        }
+        #endregion
+
+
+
+
+        #region EVENTS AND CALLBACKS
+        void TMPTextChangedCallback(object obj)
+        {
+            if (obj != (object)tmpText) return;
+
+            tesselationRequired = true;
+            //Debug.Log("tmp prop changed on "+this.gameObject.name, this.gameObject);
+        }
+
+        void TesselationRequiredCallback()
+        {
+            tesselationRequired = true;
+            curvingRequired = true;
+        }
+        #endregion
 
 #endif
     }

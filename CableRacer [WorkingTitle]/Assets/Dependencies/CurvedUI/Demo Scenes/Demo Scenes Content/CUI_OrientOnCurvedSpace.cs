@@ -6,7 +6,7 @@ namespace CurvedUI
     public class CUI_OrientOnCurvedSpace : MonoBehaviour
     {
 
-        CurvedUISettings mySettings;
+        public CurvedUISettings mySettings;
 
 
         // Use this for initialization
@@ -21,10 +21,9 @@ namespace CurvedUI
         // Update is called once per frame
         void Update()
         {
-
-            transform.position = mySettings.CanvasToCurvedCanvas(this.transform.parent.localPosition);
-            transform.rotation = Quaternion.LookRotation(mySettings.CanvasToCurvedCanvasNormal(this.transform.parent.localPosition));
-
+            Vector3 positionInCanvasSpace = mySettings.transform.worldToLocalMatrix.MultiplyPoint3x4(this.transform.parent.position);
+            transform.position = mySettings.CanvasToCurvedCanvas(positionInCanvasSpace);
+            transform.rotation = Quaternion.LookRotation(mySettings.CanvasToCurvedCanvasNormal(transform.parent.localPosition), transform.parent.up);
         }
     }
 }

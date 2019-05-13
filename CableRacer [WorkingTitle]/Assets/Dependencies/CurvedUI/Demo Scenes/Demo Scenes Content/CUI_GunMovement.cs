@@ -36,7 +36,7 @@ namespace CurvedUI
             Ray myRay = new Ray(this.transform.position, this.transform.forward);
 
             CurvedUIInputModule.CustomControllerRay = myRay;
-            CurvedUIInputModule.CustromControllerButtonDown = Input.GetMouseButton(0);
+            CurvedUIInputModule.CustomControllerButtonState = Input.GetButton("Fire1");
         }
     }
 }

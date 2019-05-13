@@ -30,7 +30,7 @@ namespace WFShader {
         static void DetectShaderType(Shader shader) {
             isProjector = shader.name.Contains("Projector");
             isUnlit = shader.name.Contains("Unlit");
-            isDiffuse = shader.name.Contains("Diffuse");
+            isDiffuse = shader.name.Contains("Diffuse") || shader.name.Contains("Vertex");
         }
 
         public static void MaterialChanged() {

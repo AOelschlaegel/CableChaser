@@ -207,6 +207,7 @@ MonoBehaviour:
   gazeTimedClickProgressImage: {fileID: 0}
   worldSpaceMouseSensitivity: 1
   usedHand: 1
+  controllerTransformOverride: {fileID: 0}
 --- !u!1001 &401616463
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -452,7 +453,7 @@ PrefabInstance:
     - target: {fileID: 1025422511926845847, guid: 038f4ed0ece30c245ade54fb7aa27872,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: LoadGameScene
+      value: LoadEndlessScene
       objectReference: {fileID: 0}
     - target: {fileID: 1025422511926845847, guid: 038f4ed0ece30c245ade54fb7aa27872,
         type: 3}
@@ -659,11 +660,6 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993804, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5577883600208181387, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
       propertyPath: m_Layer
@@ -673,6 +669,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ForceIntoRT
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993804, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0670c4121f39e46a3164a1dda791bc, type: 3}

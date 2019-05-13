@@ -4,7 +4,8 @@ using System.Collections;
 
 public class GameSceneManager : MonoBehaviour
 {
-	[SerializeField] private string _gameScene;
+	[SerializeField] private string _endlessScene;
+	[SerializeField] private string _levelScene;
 	[SerializeField] private string _gameOverScene;
 	[SerializeField] private string _startScene;
 
@@ -15,14 +16,19 @@ public class GameSceneManager : MonoBehaviour
 		_uiManager = FindObjectOfType<UIManager>();
 	}
 
-	public void LoadGameScene()
+	public void LoadLevelScene()
 	{
-		StartCoroutine(LoadScene(_gameScene));
+		StartCoroutine(LoadScene(_levelScene));
 	}
 
 	public void LoadGameOverScene()
 	{
 		StartCoroutine(LoadScene(_gameOverScene));
+	}
+
+	public void LoadEndlessScene()
+	{
+		StartCoroutine(LoadScene(_endlessScene));
 	}
 
 	public void LoadStartScene()

@@ -15,6 +15,9 @@
 #include "UnityStandardUtils.cginc"
 
 
+#if UNITY_VERSION < 560 // 5.5.x
+    #define UNITY_SHADOW_COORDS(idx1) SHADOW_COORDS(idx1)
+#endif
 
 
 struct v2f{
@@ -28,7 +31,7 @@ struct v2f{
     #else
     half3 worldNormal : TEXCOORD5;
     #endif
-    SHADOW_COORDS(8)
+    UNITY_SHADOW_COORDS(8)
     UNITY_FOG_COORDS(9)
     UNITY_VERTEX_INPUT_INSTANCE_ID
     UNITY_VERTEX_OUTPUT_STEREO
@@ -163,7 +166,7 @@ fixed4 frag (v2f i) : SV_Target{
 	#endif
 
 
-    UNITY_APPLY_FOG(i.fogCoord, c);
+    UNITY_APPLY_FOG(i.fogCoord, col);
     return col;
 }
 
