@@ -36,8 +36,8 @@ public class PlayerController_Endless : MonoBehaviour
 
 	public void Start()
 	{
-		startMarker = _proceduralGenerator.SpawnedTiles[CurrentTileId].transform;
-		TileContainer endMarkerScript = _proceduralGenerator.SpawnedTiles[CurrentTileId + 1].GetComponent<TileContainer>();
+		startMarker = _proceduralGenerator.TilePool[CurrentTileId].transform;
+		TileContainer endMarkerScript = _proceduralGenerator.TilePool[CurrentTileId + 1].GetComponent<TileContainer>();
 		_soundManager = FindObjectOfType<SoundManager>();
 		_colorManager = FindObjectOfType<ColorManager>();
 		endMarker = endMarkerScript.EndConnectors[LaneId];
@@ -76,7 +76,7 @@ public class PlayerController_Endless : MonoBehaviour
 		{
 			CurrentTileId++;
 			startMarker = endMarker;
-			TileContainer endMarkerScript = _proceduralGenerator.SpawnedTiles[CurrentTileId + 1].GetComponent<TileContainer>();
+			TileContainer endMarkerScript = _proceduralGenerator.TilePool[CurrentTileId + 1].GetComponent<TileContainer>();
 			endMarker = endMarkerScript.EndConnectors[LaneId];
 			startTimeTransform = Time.time;
 			startTimeRotation = Time.time;
@@ -86,9 +86,6 @@ public class PlayerController_Endless : MonoBehaviour
 		//
 		float timerRotation = (Time.time - startTimeRotation) * RotationSpeed;
 		transform.rotation = Quaternion.Lerp(startMarker.rotation, endMarker.rotation, timerRotation);
-
-		Debug.Log("CurrentID: " + CurrentTileId);
-
 
 		if (!isScreen)
 		{
@@ -171,7 +168,7 @@ public class PlayerController_Endless : MonoBehaviour
 
 	void ControllerInput()
 	{
-		TileContainer markerScript = _proceduralGenerator.SpawnedTiles[CurrentTileId].GetComponent<TileContainer>();
+		TileContainer markerScript = _proceduralGenerator.TilePool[CurrentTileId].GetComponent<TileContainer>();
 		if (_triggerLeft.IsTriggered && _triggerLeft.IsTriggered != _triggerLeft.IsLastTriggered)
 		{
 			//Debug.Log("left == right");
