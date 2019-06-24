@@ -217,14 +217,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74a10c5fed64064419585b15ac9b4bea, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -298,10 +298,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Start Chase
+  m_text: 06
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ee12ff8393bce94cbbcfa3fb13f396a, type: 2}
-  m_sharedMaterial: {fileID: 21813515870344540, guid: 5ee12ff8393bce94cbbcfa3fb13f396a,
+  m_fontAsset: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86, type: 2}
+  m_sharedMaterial: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -327,8 +327,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -368,10 +368,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 116922082}
-    characterCount: 11
+    characterCount: 2
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -940,6 +940,73 @@ PrefabInstance:
       propertyPath: m_isInputParsingRequired
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_text
+      value: 01
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_textInfo.characterCount
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_textInfo.spaceCount
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_textInfo.wordCount
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86,
+        type: 2}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
+        type: 2}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_fontSize
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_fontSizeBase
+      value: 65
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_firstOverflowCharacterIndex
+      value: -1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336955962653028, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336956264408334, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336956264408334, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3494336956264408334, guid: ad1ef91b7f02117459e83ac747d7e1a4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ad1ef91b7f02117459e83ac747d7e1a4, type: 3}
 --- !u!224 &599679640 stripped
@@ -1006,36 +1073,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: PlayerController
       objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_AnchoredPosition.y
-      value: 1.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -1.68
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_LocalScale.x
-      value: 0.009224832
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_LocalScale.y
-      value: 0.018360998
-      objectReference: {fileID: 0}
-    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
-        type: 3}
-      propertyPath: m_LocalScale.z
-      value: 0.018360998
-      objectReference: {fileID: 0}
     - target: {fileID: 5577883599526432717, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1090,6 +1127,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -1.68
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.009224832
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.018360998
+      objectReference: {fileID: 0}
+    - target: {fileID: 9011378484147993792, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.018360998
       objectReference: {fileID: 0}
     - target: {fileID: 356312597736238277, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
@@ -1343,14 +1410,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74a10c5fed64064419585b15ac9b4bea, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1653,14 +1720,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74a10c5fed64064419585b15ac9b4bea, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1977,10 +2044,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Start Chase
+  m_text: 03
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ee12ff8393bce94cbbcfa3fb13f396a, type: 2}
-  m_sharedMaterial: {fileID: 21813515870344540, guid: 5ee12ff8393bce94cbbcfa3fb13f396a,
+  m_fontAsset: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86, type: 2}
+  m_sharedMaterial: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2006,8 +2073,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2047,10 +2114,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 959452274}
-    characterCount: 11
+    characterCount: 2
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2427,14 +2494,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74a10c5fed64064419585b15ac9b4bea, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2543,10 +2610,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Start Chase
+  m_text: 04
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ee12ff8393bce94cbbcfa3fb13f396a, type: 2}
-  m_sharedMaterial: {fileID: 21813515870344540, guid: 5ee12ff8393bce94cbbcfa3fb13f396a,
+  m_fontAsset: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86, type: 2}
+  m_sharedMaterial: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2572,8 +2639,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2613,10 +2680,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1458848793}
-    characterCount: 11
+    characterCount: 2
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2738,10 +2805,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Start Chase
+  m_text: 02
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ee12ff8393bce94cbbcfa3fb13f396a, type: 2}
-  m_sharedMaterial: {fileID: 21813515870344540, guid: 5ee12ff8393bce94cbbcfa3fb13f396a,
+  m_fontAsset: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86, type: 2}
+  m_sharedMaterial: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2767,8 +2834,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2808,10 +2875,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1504636019}
-    characterCount: 11
+    characterCount: 2
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -2899,10 +2966,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Start Chase
+  m_text: 05
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 5ee12ff8393bce94cbbcfa3fb13f396a, type: 2}
-  m_sharedMaterial: {fileID: 21813515870344540, guid: 5ee12ff8393bce94cbbcfa3fb13f396a,
+  m_fontAsset: {fileID: 11400000, guid: acc0316d3a1d8344cb3d49a77551cd86, type: 2}
+  m_sharedMaterial: {fileID: 21777404785205442, guid: acc0316d3a1d8344cb3d49a77551cd86,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -2928,8 +2995,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 24
-  m_fontSizeBase: 24
+  m_fontSize: 65
+  m_fontSizeBase: 65
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -2969,10 +3036,10 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1593626407}
-    characterCount: 11
+    characterCount: 2
     spriteCount: 0
-    spaceCount: 1
-    wordCount: 2
+    spaceCount: 0
+    wordCount: 1
     linkCount: 0
     lineCount: 1
     pageCount: 1
@@ -3156,14 +3223,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_Sprite: {fileID: 21300000, guid: 74a10c5fed64064419585b15ac9b4bea, type: 3}
+  m_Sprite: {fileID: 0}
   m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
