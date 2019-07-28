@@ -28,6 +28,13 @@ public class ObstacleTriggerDetection : MonoBehaviour
 			_uIManager.TransitionOut();
 			_soundManager.CollisionSound();
 
+			var score = _playerController.CurrentTileId * 10;
+
+			if (score > PlayerPrefs.GetInt("HighScore"))
+			{
+				PlayerPrefs.SetInt("HighScore", score);
+			}
+			
 			PlayerPrefs.SetInt("Score", _playerController.CurrentTileId * 10);
 		}
 	}

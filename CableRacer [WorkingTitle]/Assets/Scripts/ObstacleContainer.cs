@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleContainer : MonoBehaviour
 {
 	[Header("Setup")]
-	[SerializeField] private List<GameObject> _obstacles = new List<GameObject>();
+	public List<GameObject> _obstacles = new List<GameObject>();
 	[SerializeField] private Material _obstacleMaterial;
 	public GameObject ChosenObstacle;
 

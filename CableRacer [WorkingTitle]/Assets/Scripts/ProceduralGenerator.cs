@@ -11,12 +11,14 @@ public class ProceduralGenerator : MonoBehaviour
 	[SerializeField] private GameObject _obstacle_Left;
 	[SerializeField] private GameObject _obstacle_Right;
 	[SerializeField] private GameObject _obstacle_Straight;
+	[SerializeField] private GameObject _obstacle_Dynamic;
 
 	[SerializeField] private PlayerController_Fixed _playerController;
 
 	private List<GameObject> _obstacles_Left = new List<GameObject>();
 	private List<GameObject> _obstacles_Right = new List<GameObject>();
 	private List<GameObject> _obstacles_Straight = new List<GameObject>();
+	private List<GameObject> _obstacles_Dymanic = new List<GameObject>();
 
 	public List<GameObject> SpawnedTiles;
 	public List<GameObject> SpawnedObstacles = new List<GameObject>();
@@ -85,7 +87,7 @@ public class ProceduralGenerator : MonoBehaviour
 
 	#endregion
 
-	public void GenerateTiles()
+	private void GenerateTiles()
 	{
 		for (int i = 0; i < SpawnCount; i++)
 		{
@@ -121,10 +123,24 @@ public class ProceduralGenerator : MonoBehaviour
 		}
 	}
 
-	public void SpawnObstacles()
+	private void SpawnObstacles()
 	{
 		var lastTile = SpawnedTiles[SpawnedTiles.Count - 1].gameObject;
-		var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
+
+		var rand = Random.Range(0, 4);
+		
+
+		if (rand == 3)
+		{
+			var instance = Instantiate(_obstacle_Dynamic, lastTile.transform.position, lastTile.transform.rotation);
+		}
+		else
+		{
+			var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
+		}
+
+		
+
 	}
 
 	private void SpawnTile(GameObject tile, int formerTileIndex, int spawnChance)

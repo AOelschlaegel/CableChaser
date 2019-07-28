@@ -77,8 +77,6 @@ public class PlayerController_Fixed : MonoBehaviour
 		float timerRotation = (Time.time - startTimeRotation) * mySpeedRotation;
 		transform.rotation = Quaternion.Lerp(startMarker.rotation, endMarker.rotation, timerRotation);
 
-		Debug.Log("CurrentID: " + CurrentTileId);
-
 		switch(CurrentTileId)
 		{
 			case 30:

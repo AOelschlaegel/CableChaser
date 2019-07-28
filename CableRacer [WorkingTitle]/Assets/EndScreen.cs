@@ -7,6 +7,7 @@ public class EndScreen : MonoBehaviour
 {
 	private UIManager _uiManager;
 	[SerializeField] TextMeshProUGUI _score;
+	[SerializeField] private TextMeshProUGUI _highScore;
 
 	void Start()
 	{
@@ -14,5 +15,7 @@ public class EndScreen : MonoBehaviour
 		_uiManager.TransitionIn();
 
 		_score.text = PlayerPrefs.GetInt("Score").ToString();
+		_highScore.text = PlayerPrefs.GetInt("HighScore").ToString();
+
 	}
 }
