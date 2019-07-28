@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class PlayerController_Endless : MonoBehaviour
 {
@@ -10,8 +9,6 @@ public class PlayerController_Endless : MonoBehaviour
 
 	[SerializeField] private TriggerDetection _triggerLeft;
 	[SerializeField] private TriggerDetection _triggerRight;
-
-	[SerializeField] private TextMeshProUGUI _score;
 
 	private ColorManager _colorManager;
 
@@ -44,12 +41,11 @@ public class PlayerController_Endless : MonoBehaviour
 
 		startTimeTransform = Time.time;
 		startTimeRotation = Time.time;
-
-		_score.enabled = false;
 	}
 
 	public void Update()
 	{
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 
 		if (isScreen)
 		{
@@ -64,6 +60,8 @@ public class PlayerController_Endless : MonoBehaviour
 			_score.text = (CurrentTileId * 10).ToString();
 		}
 
+=======
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 		ControllerInput();
 
 		// Lerp Transform
@@ -89,9 +87,13 @@ public class PlayerController_Endless : MonoBehaviour
 
 		if (!isScreen)
 		{
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 			switch (CurrentTileId)
 			{
 				case 30:
+=======
+			case 25:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 4f;
 					TransformSpeed = 4f;
@@ -101,7 +103,11 @@ public class PlayerController_Endless : MonoBehaviour
 
 					break;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 				case 60:
+=======
+			case 50:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 5f;
 					TransformSpeed = 5f;
@@ -110,11 +116,16 @@ public class PlayerController_Endless : MonoBehaviour
 					_colorManager.ChangeObstacleColor();
 					break;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 				case 90:
+=======
+			case 100:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 6f;
 					TransformSpeed = 6f;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 					_colorManager.ChangeMainColor();
 					_colorManager.ChangeObstacleColor();
 
@@ -123,6 +134,13 @@ public class PlayerController_Endless : MonoBehaviour
 					break;
 
 				case 120:
+=======
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+
+			case 200:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 7f;
 					TransformSpeed = 7f;
@@ -131,11 +149,16 @@ public class PlayerController_Endless : MonoBehaviour
 					_colorManager.ChangeObstacleColor();
 					break;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 				case 150:
+=======
+			case 400:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 8f;
 					TransformSpeed = 8f;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 					_colorManager.ChangeMainColor();
 					_colorManager.ChangeObstacleColor();
 
@@ -143,6 +166,13 @@ public class PlayerController_Endless : MonoBehaviour
 					break;
 
 				case 250:
+=======
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+
+			case 800:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 9f;
 					TransformSpeed = 9f;
@@ -151,17 +181,27 @@ public class PlayerController_Endless : MonoBehaviour
 					_colorManager.ChangeObstacleColor();
 					break;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 				case 400:
+=======
+			case 1600:
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 
 					RotationSpeed = 10f;
 					TransformSpeed = 10f;
 
+<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Endless.cs
 					_colorManager.ChangeMainColor();
 					_colorManager.ChangeObstacleColor();
 
 					_proceduralGenerator.ObstacleSpawnDivider = 6;
 					break;
 			}
+=======
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+>>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scripts/PlayerController_Fixed.cs
 		}
 	}
 

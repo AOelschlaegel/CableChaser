@@ -65,7 +65,11 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
+<<<<<<< HEAD
     - _AASmooth: 1.5
+=======
+    - _AASmooth: 1.136
+>>>>>>> parent of af5eb60... Release 0.1
     - _BumpScale: 1
     - _Channel: 0
     - _Cull: 2
@@ -74,6 +78,7 @@ Material:
     - _DstBlend: 0
     - _FDist: 0.1
     - _FMode: 1
+<<<<<<< HEAD
     - _FPow: 5
     - _Fade: 0
     - _Fold: 3
@@ -82,6 +87,16 @@ Material:
     - _GPower: 0.5
     - _GlossMapScale: 1
     - _Glossiness: 0.5
+=======
+    - _FPow: 1.72
+    - _Fade: 1
+    - _Fold: 2
+    - _GDist: 0.206
+    - _GEmission: 0.19
+    - _GPower: 0.36
+    - _GlossMapScale: 0.91
+    - _Glossiness: 0
+>>>>>>> parent of af5eb60... Release 0.1
     - _GlossyReflections: 1
     - _Glow: 0
     - _Limits: 1
@@ -102,14 +117,27 @@ Material:
     - _WMetal: 0
     - _WMode: 0
     - _WOpacity: 1
+<<<<<<< HEAD
     - _WParam: 0
     - _WStyle: 0
     - _WThickness: 0.052140005
+=======
+    - _WParam: 0.3088
+    - _WStyle: 1
+    - _WThickness: 0
+>>>>>>> parent of af5eb60... Release 0.1
     - _WTransparency: 1
     - _WUV: 0
     - _ZWrite: 4
     m_Colors:
+<<<<<<< HEAD
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GColor: {r: 0, g: 0, b: 0, a: 1}
     - _WColor: {r: 0.6672554, g: 0.73437387, b: 0.8626765, a: 0.95}
+=======
+    - _Color: {r: 0, g: 0, b: 0, a: 0.9411765}
+    - _EmissionColor: {r: 0.0005284927, g: 0.0003561581, b: 0.0003561581, a: 1}
+    - _GColor: {r: 0.5424528, g: 0.61580014, b: 1, a: 1}
+    - _WColor: {r: 0.44811308, g: 0.77058834, b: 1, a: 1}
+>>>>>>> parent of af5eb60... Release 0.1

@@ -80,7 +80,7 @@ Material:
     - _Fade: 1
     - _Fold: 31
     - _GDist: 0.267
-    - _GEmission: 0.434
+    - _GEmission: 0.453
     - _GPower: 0.65
     - _GlossMapScale: 0.91
     - _Glossiness: 0
@@ -112,6 +112,6 @@ Material:
     - _ZWrite: 0
     m_Colors:
     - _Color: {r: 0, g: 0, b: 0, a: 0.8235294}
-    - _EmissionColor: {r: 2, g: 0.09411765, b: 0, a: 0.8}
-    - _GColor: {r: 1, g: 0.39354917, b: 0, a: 1}
-    - _WColor: {r: 0.3213358, g: 0.7259515, b: 0.36440343, a: 0.9}
+    - _EmissionColor: {r: 0.8941177, g: 0.11234987, b: 0, a: 1}
+    - _GColor: {r: 1, g: 0.3184082, b: 0, a: 1}
+    - _WColor: {r: 0.6981132, g: 0.503827, b: 0.503827, a: 1}
