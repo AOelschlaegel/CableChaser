@@ -66,11 +66,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
 <<<<<<< HEAD
-<<<<<<< HEAD
     - _AASmooth: 1.5
-=======
-    - _AASmooth: 1.136
->>>>>>> parent of af5eb60... Release 0.1
 =======
     - _AASmooth: 1.136
 >>>>>>> parent of af5eb60... Release 0.1
@@ -122,13 +118,10 @@ Material:
     - _WMode: 0
     - _WOpacity: 1
 <<<<<<< HEAD
-<<<<<<< HEAD
     - _WParam: 0
     - _WStyle: 0
     - _WThickness: 0.052140005
 =======
-=======
->>>>>>> parent of af5eb60... Release 0.1
     - _WParam: 0.3088
     - _WStyle: 1
     - _WThickness: 0
@@ -147,7 +140,4 @@ Material:
     - _EmissionColor: {r: 0.0005284927, g: 0.0003561581, b: 0.0003561581, a: 1}
     - _GColor: {r: 0.5424528, g: 0.61580014, b: 1, a: 1}
     - _WColor: {r: 0.44811308, g: 0.77058834, b: 1, a: 1}
-<<<<<<< HEAD
->>>>>>> parent of af5eb60... Release 0.1
-=======
 >>>>>>> parent of af5eb60... Release 0.1
