@@ -493,7 +493,6 @@ MonoBehaviour:
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
   _levels:
   - {fileID: 4200956088861306849, guid: cca5340f7eec5884bb22dbd873bc2997, type: 3}
   - {fileID: 3980518643383880238, guid: 5341acc85e3c0b240a4d91c5564fc2bb, type: 3}
@@ -510,8 +509,6 @@ MonoBehaviour:
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
-=======
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
   _proceduralGenerator: {fileID: 1765930527}
   _soundManager: {fileID: 0}
   _triggerLeft: {fileID: 987820089}
@@ -519,9 +516,6 @@ MonoBehaviour:
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
-=======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
@@ -533,7 +527,6 @@ MonoBehaviour:
   LaneId: 0
   startMarker: {fileID: 0}
   endMarker: {fileID: 0}
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
@@ -557,8 +550,6 @@ RectTransform:
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
-=======
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
   CameraRig: {fileID: 1738060912}
   mySpeedTransform: 3
   startTimeTransform: 0
@@ -567,9 +558,6 @@ RectTransform:
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
-=======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
@@ -815,7 +803,6 @@ PrefabInstance:
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 --- !u!114 &671879290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6951211193245473921, guid: 6c0670c4121f39e46a3164a1dda791bc,
@@ -1021,8 +1008,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754365064}
   m_CullTransparentMesh: 0
-=======
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
@@ -1522,13 +1507,10 @@ MonoBehaviour:
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 <<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
   TransitionSpeed: 10
   MainColorSwitch: 1
   ObstacleSwitch: 0
 =======
-=======
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
 >>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 =======
