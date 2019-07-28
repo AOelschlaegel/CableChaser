@@ -5,23 +5,6 @@
       <e p="Assembly-CSharp-Editor.csproj" t="IncludeRecursive" />
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
-        <e p="CurvedUI" t="Include">
-          <e p="Demo Scenes" t="Include">
-            <e p="Demo Scenes Content" t="Include">
-              <e p="OverlayBlend.shader" t="Include" />
-            </e>
-          </e>
-          <e p="Scripts" t="Include">
-            <e p="CurvedUIEventSystem.cs" t="Include" />
-            <e p="CurvedUIExtensionMethods.cs" t="Include" />
-            <e p="Editor" t="Include">
-              <e p="CurvedUIHandSwitcherEditor.cs" t="Include" />
-            </e>
-            <e p="Experimental" t="Include">
-              <e p="CurvedUITMPInputFieldCaret.cs" t="Include" />
-            </e>
-          </e>
-        </e>
         <e p="Dependencies" t="Include">
           <e p="CurvedUI" t="Include">
             <e p="Demo Scenes" t="Include">
@@ -718,7 +701,6 @@
               <e p="_WFSProjector.shader" t="Include" />
               <e p="_WFSStandard.shader" t="Include" />
               <e p="_WFSUnlit.shader" t="Include" />
-              <e p="_WFSVertexColor.shader" t="Include" />
               <e p="license_UnityStandard.txt" t="Include" />
               <e p="Unity55StandardCore.cginc" t="Include" />
               <e p="Unity55StandardMeta.cginc" t="Include" />
@@ -735,7 +717,6 @@
               <e p="WFSProjector.cginc" t="Include" />
               <e p="WFSSetup.cginc" t="Include" />
               <e p="WFSUnlit.cginc" t="Include" />
-              <e p="WFSVertexColor.cginc" t="Include" />
             </e>
           </e>
         </e>

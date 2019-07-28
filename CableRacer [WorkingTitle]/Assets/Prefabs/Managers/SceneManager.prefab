@@ -43,7 +43,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e3b7439cd3667d346819e3651f92aa43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _endlessScene: '[Mode]Endless'
-  _levelScene: '[Mode]Level'
-  _gameOverScene: GameOverScreen
-  _startScene: StartScreen
+  _gameScene: GameScene
+  _gameOverScene: GameOver
+  _startScene: Start

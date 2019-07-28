@@ -20,11 +20,7 @@ void geom(triangle WFS_VERTOUT i[3], inout TriangleStream<WFS_VERTOUT> stream) {
 	#ifdef WFS_TWOSIDED
 		#if !defined(WFS_PASS_SHADOWCASTER) && !defined(WFS_PASS_META) && !defined(WFS_UNLIT)
 			// Invert normals
-			#if defined(WFS_VCOLOR) || (defined(WFS_DIFFUSE) && !defined(_NORMALMAP))
-				i0.worldNormal.xyz *= -1; i1.worldNormal.xyz *= -1; i2.worldNormal.xyz *= -1;
-			#else
-				i0.TNGNTTOWRLD[2].xyz *= -1; i1.TNGNTTOWRLD[2].xyz *= -1; i2.TNGNTTOWRLD[2].xyz *= -1;
-			#endif
+			i0.TNGNTTOWRLD[2].xyz *= -1; i1.TNGNTTOWRLD[2].xyz *= -1; i2.TNGNTTOWRLD[2].xyz *= -1;
 		#endif
 
 		// Emit triangle with inverted winding order

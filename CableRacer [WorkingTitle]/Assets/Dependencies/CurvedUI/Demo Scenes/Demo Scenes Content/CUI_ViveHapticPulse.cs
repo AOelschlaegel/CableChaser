@@ -21,7 +21,7 @@ namespace CurvedUI {
 
         public void TriggerPulse() 
         {
-#if CURVEDUI_STEAMVR_LEGACY
+#if CURVEDUI_VIVE
             CurvedUIInputModule.Right.TriggerHapticPulse(1, (ushort)(PulseStrength * 3000));
 			#endif 
         }

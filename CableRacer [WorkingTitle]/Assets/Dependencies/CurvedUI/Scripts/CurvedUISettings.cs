@@ -1,12 +1,8 @@
-
-
-#define CURVEDUI_PRESENT //If you're an asset creator and want to see if CurvedUI is imported, just use "#if CURVEDUI_PRESENT [your code] #endif"
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 using System.Collections.Generic;
-
-#if CURVEDUI_TMP || TMP_PRESENT
+#if CURVEDUI_TMP 
 using TMPro;
 #endif 
 
@@ -35,9 +31,9 @@ namespace CurvedUI
 		[SerializeField]
 		bool blocksRaycasts = true;
         [SerializeField]
-        bool raycastMyLayerOnly = true;
+        bool raycastMyLayerOnly = false;
         [SerializeField]
-        bool forceUseBoxCollider = false;
+        bool forceUseBoxCollider = true;
 
         //Cyllinder settings
         [SerializeField]
@@ -59,39 +55,24 @@ namespace CurvedUI
 
 
         //internal system settings
-        int baseCircleSegments = 16;
+        int baseCircleSegments = 24;
 
 
-        //stored variables
+        //support variables
         Vector2 savedRectSize;
         float savedRadius;
         Canvas myCanvas;
-        RectTransform m_rectTransform;
-
 #endregion
 
 
 #region LIFECYCLE
-
-        void Awake()
-        {
-            // If this canvas is on Default layer, switch it to UI layer..
-            // this is to make sure that when using raycasting to detect interactions, 
-            // nothing will interfere with it.
-            if (RaycastMyLayerOnly && gameObject.layer == 0)
-                this.gameObject.layer = 5;
-
-            //save initial variables
-            savedRectSize = RectTransform.rect.size;
-        }
 
         void Start()
         {
             if (Application.isPlaying)
             {   
                 
-                // lets get rid of any raycasters and add our custom one
-                // It will be responsible for handling interactions.
+                //lets get rid of any raycasters and add our custom one
                 GraphicRaycaster castie = GetComponent<GraphicRaycaster>();
 
                 if (castie != null)
@@ -136,9 +117,9 @@ namespace CurvedUI
         {
 
             //recreate the geometry if entire canvas has been resized
-            if (RectTransform.rect.size != savedRectSize)
+            if ((transform as RectTransform).rect.size != savedRectSize)
             {
-                savedRectSize = RectTransform.rect.size;
+                savedRectSize = (transform as RectTransform).rect.size;
                 SetUIAngle(angle);
             }
 
@@ -168,10 +149,10 @@ namespace CurvedUI
             savedRadius = GetCyllinderRadiusInCanvasSpace();
 
             foreach (CurvedUIVertexEffect ve in GetComponentsInChildren<CurvedUIVertexEffect>())
-                ve.SetDirty(); 
+                ve.TesselationRequired = true;
 
             foreach (Graphic graph in GetComponentsInChildren<Graphic>())
-                graph.SetAllDirty();
+                graph.SetVerticesDirty();
 
             if (Application.isPlaying && GetComponent<CurvedUIRaycaster>() != null)
                 //tell raycaster to update its collider now that angle has changed.
@@ -242,14 +223,6 @@ namespace CurvedUI
 
 #region PUBLIC
 
-        RectTransform RectTransform {
-            get
-            {
-                if (m_rectTransform == null) m_rectTransform = transform as RectTransform;
-                return m_rectTransform;
-            }
-        }
-
         /// <summary>
         /// Adds the CurvedUIVertexEffect component to every child gameobject that requires it. 
         /// CurvedUIVertexEffect creates the curving effect.
@@ -274,19 +247,14 @@ namespace CurvedUI
                 }
             }
 
-            //TextMeshPro experimental support. Go to CurvedUITMP.cs to learn how to enable it.
-#if CURVEDUI_TMP || TMP_PRESENT
-		    foreach(TextMeshProUGUI tmp in GetComponentsInChildren<TextMeshProUGUI>(true)){
-			    if(tmp.GetComponent<CurvedUITMP>() == null){
-				    tmp.gameObject.AddComponent<CurvedUITMP>();
-				    tmp.SetAllDirty();
-			    }
-		    }
-
-            foreach (TMP_InputField tmp in GetComponentsInChildren<TMP_InputField>(true))
-            {
-                tmp.AddComponentIfMissing<CurvedUITMPInputFieldCaret>();
-            }
+             //TextMeshPro experimental support. Go to CurvedUITMP.cs to learn how to enable it.
+#if CURVEDUI_TMP
+		foreach(TextMeshProUGUI tmp in GetComponentsInChildren<TextMeshProUGUI>(true)){
+			if(tmp.GetComponent<CurvedUITMP>() == null){
+				tmp.gameObject.AddComponent<CurvedUITMP>();
+				tmp.SetAllDirty();
+			}
+		}
 #endif
         }
 
@@ -428,13 +396,13 @@ namespace CurvedUI
             if (PreserveAspect)
             {
                 if(shape == CurvedUIShape.CYLINDER_VERTICAL)
-                  ret = (RectTransform.rect.size.y / ((2 * Mathf.PI) * (angle / 360.0f)));
+                  ret = ((transform as RectTransform).rect.size.y / ((2 * Mathf.PI) * (angle / 360.0f)));
                 else
-                  ret = (RectTransform.rect.size.x / ((2 * Mathf.PI) * (angle / 360.0f)));
+                  ret = ((transform as RectTransform).rect.size.x / ((2 * Mathf.PI) * (angle / 360.0f)));
 
             }
             else
-                ret = (RectTransform.rect.size.x * 0.5f) / Mathf.Sin(Mathf.Clamp(angle, -180.0f, 180.0f) * 0.5f * Mathf.Deg2Rad);
+                ret = ((transform as RectTransform).rect.size.x * 0.5f) / Mathf.Sin(Mathf.Clamp(angle, -180.0f, 180.0f) * 0.5f * Mathf.Deg2Rad);
 
             return angle == 0 ? 0 : ret;
         }
@@ -443,41 +411,43 @@ namespace CurvedUI
         /// Tells you how big UI quads can get before they should be tesselate to look good on current canvas settings.
         /// Used by CurvedUIVertexEffect to determine how many quads need to be created for each graphic.
         /// </summary>
-        public Vector2 GetTesslationSize(bool modifiedByQuality = true)
+        public Vector2 GetTesslationSize(bool UnmodifiedByQuality = false)
         {
-            Vector2 ret = RectTransform.rect.size;
+
+            Vector2 canvasSize = GetComponent<RectTransform>().rect.size;
+            float ret = canvasSize.x;
+            float ret2 = canvasSize.y;
+
             if (Angle != 0 || (!PreserveAspect && vertAngle != 0))
             {
+
                 switch (shape)
                 {
-                    case CurvedUIShape.CYLINDER: ret /= GetSegmentsByAngle(angle); break;
-                    case CurvedUIShape.CYLINDER_VERTICAL: goto case CurvedUIShape.CYLINDER;
-                    case CurvedUIShape.RING: goto case CurvedUIShape.CYLINDER; 
-                    case CurvedUIShape.SPHERE: 
+                    case CurvedUIShape.CYLINDER:
                     {
-                        ret.x /= GetSegmentsByAngle(angle);
-
-                        if (PreserveAspect)
-                            ret.y = ret.x * RectTransform.rect.size.y / RectTransform.rect.size.x;
-                        else
-                            ret.y /= GetSegmentsByAngle(VerticalAngle);
+                        ret = Mathf.Min(canvasSize.x / 4, canvasSize.x / (Mathf.Abs(angle).Remap(0.0f, 360.0f, 0 ,1) * baseCircleSegments));
+                        ret2 = Mathf.Min(canvasSize.y / 4, canvasSize.y / (Mathf.Abs(angle).Remap(0.0f, 360.0f, 0, 1) * baseCircleSegments));
                         break;
                     }
+                    case CurvedUIShape.CYLINDER_VERTICAL: goto case CurvedUIShape.CYLINDER;
+                    case CurvedUIShape.RING: goto case CurvedUIShape.CYLINDER;
+                    case CurvedUIShape.SPHERE:
+                    {
+
+                        ret = Mathf.Min(canvasSize.x / 4, canvasSize.x / (Mathf.Abs(angle).Remap(0.0f, 360.0f,0 , 1) * baseCircleSegments * 0.5f));
+
+                        if (PreserveAspect)
+                            ret2 = ret * canvasSize.y / canvasSize.x;
+                        else {
+                            ret2 = VerticalAngle == 0 ? 10000 : canvasSize.y / (Mathf.Abs(VerticalAngle).Remap(0.0f, 180.0f, 0, 1) * baseCircleSegments * 0.5f);
+                        }
+
+                        break;
+                    }
+
                 }
             }
-            //Debug.Log(this.gameObject.name + " returning size " + ret + " which is " + ret * this.transform.localScale.x + " in world space.", this.gameObject);
-            return ret / (modifiedByQuality ? Mathf.Clamp(Quality, 0.01f, 10.0f) : 1);
-        }
-
-        float GetSegmentsByAngle(float angle)
-        {
-            if (angle.Abs() <= 1)
-                return 1;
-            else if (angle.Abs() < 90)//proportionaly twice as many segments for small angle canvases
-                return baseCircleSegments * (Mathf.Abs(angle).Remap(0, 90, 0.01f, 0.5f));
-            else
-                return baseCircleSegments * (Mathf.Abs(angle).Remap(90, 360.0f, 0.5f, 1));
-
+            return new Vector2(ret, ret2) / (UnmodifiedByQuality ? 1 : Mathf.Clamp(Quality, 0.01f, 10.0f));
         }
 
         /// <summary>
@@ -676,21 +646,6 @@ namespace CurvedUI
 
 
         #region SHORTCUTS
-        /// <summary>
-        /// Returns true if user's pointer is currently pointing inside this canvas.
-        /// This is a shortcut to CurvedUIRaycaster's PointingAtCanvas bool.
-        /// </summary>
-        public bool PointingAtCanvas {
-            get {
-                if (GetComponent<CurvedUIRaycaster>() != null)
-                    return GetComponent<CurvedUIRaycaster>().PointingAtCanvas;
-                else {
-                    Debug.LogWarning("CURVEDUI: Can't check if user is pointing at this canvas - No CurvedUIRaycaster is added to this canvas.");
-                    return false;
-                }
-            }
-        }
-
         /// <summary>
         /// Sends OnClick event to every Button under pointer.
         /// This is a shortcut to CurvedUIRaycaster's Click method.

@@ -93,7 +93,7 @@
 	#endif
 #elif defined(WFS_PASS_FORWARDADD)
 	#define TNGNTTOWRLD tangentToWorldAndLightDir
-#elif defined(WFS_DIFFUSE) || defined(WFS_VCOLOR)
+#elif defined(WFS_DIFFUSE)
 	#define TNGNTTOWRLD tSpace
 #endif
 
@@ -321,7 +321,7 @@ inline void WFSBlendLerp(half4 surfCol, half3 surfEmi, half4 wireCol, float wire
 }
 #endif
 
-#if !defined(WFS_PASS_SHADOWCASTER) && !defined(WFS_UNLIT) && !defined(WFS_DIFFUSE) && !defined(WFS_VCOLOR)
+#if !defined(WFS_PASS_SHADOWCASTER) && !defined(WFS_UNLIT) && !defined(WFS_DIFFUSE)
 // The root fragment function
 inline void WFSFragBase(float3 dist, float4 uv,
 	#ifdef _FADE_ON

@@ -6,20 +6,18 @@ using UnityEngine.UI;
 namespace CurvedUI
 {
     /// <summary>
-    /// This class contains code that controls the visuals (only!) of the laser pointer.
+    /// This class contains code that controls the mockup vive controller. 
+    /// Its made to make demo sceen look better. Its not made to be used with actual vive controller.
     /// </summary>
-    public class CurvedUILaserBeam : MonoBehaviour
+    public class CUI_ViveLaserBeam : MonoBehaviour
     {
 
         [SerializeField]
         Transform LaserBeamTransform;
         [SerializeField]
         Transform LaserBeamDot;
-        [SerializeField]
-        bool CollideWithMyLayerOnly = false;
-        [SerializeField]
-        bool hideWhenNotAimingAtCanvas = false;
 
+        
 
         // Update is called once per frame
         protected void Update()
@@ -34,36 +32,21 @@ namespace CurvedUI
                 //change the laser's length depending on where it hits
                 float length = 10000;
 
-
-                //create layerMaskwe're going to use for raycasting
-                int myLayerMask = -1;
-                if (CollideWithMyLayerOnly)
-                {
-                    //lm with my own layer only.
-                    myLayerMask = 1 << this.gameObject.layer;
-                }
-
-
                 RaycastHit hit;
-                if (Physics.Raycast(myRay, out hit, length, myLayerMask))
+                if (Physics.Raycast(myRay, out hit, length))
                 {
                     length = Vector3.Distance(hit.point, this.transform.position);
 
-                    //Find if we hit a canvas
-                    CurvedUISettings cuiSettings = hit.collider.GetComponentInParent<CurvedUISettings>();
-                    if (cuiSettings != null)
-                    {
-                        //find if there are any canvas objects we're pointing at. we only want transforms with graphics to block the pointer. (that are drawn by canvas => depth not -1)
-                        int selectablesUnderPointer = cuiSettings.GetObjectsUnderPointer().FindAll(x => x != null && x.GetComponent<Graphic>() != null && x.GetComponent<Graphic>().depth != -1).Count;
+                    //If we hit a canvas, we only want transforms with graphics to block the pointer. (that are drawn by canvas => depth not -1)
+                    if (hit.transform.GetComponent<CurvedUIRaycaster>() != null)  {
+                        int SelectablesUnderPointer = hit.transform.GetComponent<CurvedUIRaycaster>().GetObjectsUnderPointer().FindAll(x => x.GetComponent<Graphic>() != null && x.GetComponent<Graphic>().depth != -1).Count;
 
-                        length = selectablesUnderPointer == 0 ? 10000 : Vector3.Distance(hit.point, this.transform.position);
-                    }
-                    else if (hideWhenNotAimingAtCanvas) length = 0;
+                        //Debug.Log("found graphics: " + SelectablesUnderPointer);
+                        length = SelectablesUnderPointer == 0 ? 10000 : Vector3.Distance(hit.point, this.transform.position);
+                    }  
+
                 }
-                else if (hideWhenNotAimingAtCanvas) length = 0;
 
-
-                //set the leangth of the beam
                 LaserBeamTransform.localScale = LaserBeamTransform.localScale.ModifyZ(length);
             }
            

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-#if CURVEDUI_TMP || TMP_PRESENT
+#if CURVEDUI_TMP
 using TMPro;
 #endif
 
@@ -11,62 +11,52 @@ namespace CurvedUI
     [ExecuteInEditMode]
     public class CurvedUITMPSubmesh : MonoBehaviour
     {
-#if CURVEDUI_TMP || TMP_PRESENT
+#if CURVEDUI_TMP
 
+      
+        VertexHelper vh;     
+        Mesh savedMesh;
 
-        VertexHelper vh;
-        Mesh straightMesh;
-        Mesh curvedMesh;
-        CurvedUIVertexEffect crvdVE;
-        TMP_SubMeshUI TMPsub;
 
         public void UpdateSubmesh(bool tesselate, bool curve)
         {
-            if (TMPsub == null)
-                TMPsub = gameObject.GetComponent<TMP_SubMeshUI>();
-
+            TMP_SubMeshUI TMPsub = gameObject.GetComponent<TMP_SubMeshUI>();
             if (TMPsub == null) return;
 
-            if (crvdVE == null)
-                 crvdVE = gameObject.AddComponentIfMissing<CurvedUIVertexEffect>();
+            CurvedUIVertexEffect crvdVE = gameObject.AddComponentIfMissing<CurvedUIVertexEffect>();
 
-
-            if (tesselate || straightMesh == null || vh == null || (!Application.isPlaying))
+            if (tesselate || savedMesh == null || vh == null || (!Application.isPlaying))
             {
-                //Debug.Log("Submesh: tesselate", this.gameObject);
                 vh = new VertexHelper(TMPsub.mesh);
+                ModifyMesh(crvdVE);
 
-                //save straight mesh - it will be curved then every time the object moves on the canvas.
-                straightMesh = new Mesh();
-                vh.FillMesh(straightMesh);
-
-                //we do it differently now
-                //curve and save mesh 
-                //crvdVE.ModifyMesh(vh);
-                //curvedMesh = new Mesh();
-                //vh.FillMesh(curvedMesh);
-
-               curve = true;
+                savedMesh = new Mesh();
+                vh.FillMesh(savedMesh);
+                crvdVE.TesselationRequired = true;
             }
-
-
-            if (curve)
+            else if (curve)
             {
-                //Debug.Log("Submesh: Curve", this.gameObject);
-                vh = new VertexHelper(straightMesh);
-                crvdVE.ModifyMesh(vh);
-                curvedMesh = new Mesh();
-                vh.FillMesh(curvedMesh);
+                ModifyMesh(crvdVE);
+                vh.FillMesh(savedMesh);
                 crvdVE.CurvingRequired = true;
-
             }
 
-            TMPsub.canvasRenderer.SetMesh(curvedMesh);
+            TMPsub.canvasRenderer.SetMesh(savedMesh);
         }
 
-#endif
-    }
 
+
+
+        void ModifyMesh(CurvedUIVertexEffect crvdVE)
+        {
+#if UNITY_5_1
+		    crvdVE.ModifyMesh(vh.GetUIVertexStream);
+#else
+            crvdVE.ModifyMesh(vh);
+#endif
+        }
+#endif 
+    }
 }
 
 

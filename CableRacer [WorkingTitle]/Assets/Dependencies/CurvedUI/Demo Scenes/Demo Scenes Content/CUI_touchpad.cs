@@ -7,7 +7,7 @@ public class CUI_touchpad : MonoBehaviour {
     RectTransform container;
     [SerializeField] RectTransform dot;
  
-#if CURVEDUI_STEAMVR_LEGACY
+#if CURVEDUI_VIVE
 	CurvedUIViveController controller;
 
     void Start () {

@@ -33,11 +33,6 @@ public class ProceduralGenerator : MonoBehaviour
 	public int ObstacleSpawnDivider;
 
 	public int division = 2;
-	
-	[Header("Screen")]
-	public bool isScreen;
-
-
 
 	#region UnityEvents
 
@@ -112,14 +107,10 @@ public class ProceduralGenerator : MonoBehaviour
 		}
 	}
 
-	
 	public void SpawnObstacles()
 	{
-		if (!isScreen)
-		{
-			var lastTile = SpawnedTiles[SpawnedTiles.Count - 1].gameObject;
-			var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
-		}
+		var lastTile = SpawnedTiles[SpawnedTiles.Count - 1].gameObject;
+		var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
 	}
 
 	private void SpawnTile(GameObject tile, int spawnChance)

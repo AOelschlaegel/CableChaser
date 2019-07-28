@@ -20,7 +20,7 @@ namespace CurvedUI
         {
             testMsg.gameObject.SetActive(false);
 
-#if CURVEDUI_TMP || TMP_PRESENT
+#if CURVEDUI_TMP
             enabledMsg.gameObject.SetActive(true);
             disabledMsg.gameObject.SetActive(false);
 #else

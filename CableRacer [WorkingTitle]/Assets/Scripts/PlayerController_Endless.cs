@@ -29,10 +29,6 @@ public class PlayerController_Endless : MonoBehaviour
 	public float RotationSpeed;
 	public float startTimeRotation;
 
-	[Header("Screen")]
-	public bool isScreen;
-	[SerializeField] private float _speed;
-
 
 	public void Start()
 	{
@@ -51,12 +47,6 @@ public class PlayerController_Endless : MonoBehaviour
 	public void Update()
 	{
 
-		if (isScreen)
-		{
-			TransformSpeed = _speed;
-			RotationSpeed = _speed;
-		}
-		
 
 		if (CurrentTileId > 0)
 		{
@@ -89,82 +79,78 @@ public class PlayerController_Endless : MonoBehaviour
 
 		Debug.Log("CurrentID: " + CurrentTileId);
 
-
-		if (!isScreen)
+		switch(CurrentTileId)
 		{
-			switch (CurrentTileId)
-			{
-				case 30:
+			case 30:
 
-					RotationSpeed = 4f;
-					TransformSpeed = 4f;
+				RotationSpeed = 4f;
+				TransformSpeed = 4f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 
-					break;
+				break;
 
-				case 60:
+			case 60:
 
-					RotationSpeed = 5f;
-					TransformSpeed = 5f;
+				RotationSpeed = 5f;
+				TransformSpeed = 5f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
-					break;
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
 
-				case 90:
+			case 90:
 
-					RotationSpeed = 6f;
-					TransformSpeed = 6f;
+				RotationSpeed = 6f;
+				TransformSpeed = 6f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 
-					_proceduralGenerator.ObstacleSpawnDivider = 4;
+				_proceduralGenerator.ObstacleSpawnDivider = 4;
 
-					break;
+				break;
 
-				case 120:
+			case 120:
 
-					RotationSpeed = 7f;
-					TransformSpeed = 7f;
+				RotationSpeed = 7f;
+				TransformSpeed = 7f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
-					break;
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
 
-				case 150:
+			case 150:
 
-					RotationSpeed = 8f;
-					TransformSpeed = 8f;
+				RotationSpeed = 8f;
+				TransformSpeed = 8f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 
-					_proceduralGenerator.ObstacleSpawnDivider = 5;
-					break;
+				_proceduralGenerator.ObstacleSpawnDivider = 5;
+				break;
 
-				case 250:
+			case 250:
 
-					RotationSpeed = 9f;
-					TransformSpeed = 9f;
+				RotationSpeed = 9f;
+				TransformSpeed = 9f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
-					break;
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
 
-				case 400:
+			case 400:
 
-					RotationSpeed = 10f;
-					TransformSpeed = 10f;
+				RotationSpeed = 10f;
+				TransformSpeed = 10f;
 
-					_colorManager.ChangeMainColor();
-					_colorManager.ChangeObstacleColor();
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
 
-					_proceduralGenerator.ObstacleSpawnDivider = 6;
-					break;
-			}
+				_proceduralGenerator.ObstacleSpawnDivider = 6;
+				break;
 		}
 	}
 
