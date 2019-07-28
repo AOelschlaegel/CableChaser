@@ -49,7 +49,7 @@ public class GameSceneManager : MonoBehaviour
 
 	private IEnumerator LoadScene(string scene)
 	{
-		_uiManager.TransitionIn();
+		_uiManager.TransitionOut();
 		yield return new WaitForSeconds(2f);
 		SceneManager.LoadScene(scene);
 	}

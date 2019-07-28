@@ -61,7 +61,6 @@ public class ProceduralGenerator : MonoBehaviour
 
 
 
-<<<<<<< HEAD
         var initialTile = _tiles[0];
         var initialPos = new Vector3(0, 0, 2);
         var initialInstance = Instantiate(initialTile, initialPos, Quaternion.identity);
@@ -228,66 +227,4 @@ public class ProceduralGenerator : MonoBehaviour
      * 
      * */
 
-=======
-	public void GenerateTiles()
-	{
-		for (int i = 0; i < SpawnCount; i++)
-		{
-			var randTile = Random.Range(0, _tiles.Count);
-			var tile = _tiles[randTile];
-			var tileId = tile.GetComponent<TileContainer>().Id;
-
-			switch (randTile)
-			{
-				//Straight
-				case 0:
-					var spawnChance = Random.Range(5, StraightSpawnChance);
-					SpawnTile(tile, i, spawnChance);
-
-					break;
-
-				//Curve Right
-				case 1:
-					spawnChance = Random.Range(1, CurveSpawnChance);
-					SpawnTile(tile, i, spawnChance);
-
-					break;
-
-				//Curve Left
-				case 2:
-					spawnChance = Random.Range(1, CurveSpawnChance);
-					SpawnTile(tile, i, spawnChance);
-
-					break;
-			}
-
-			if (i % ObstacleSpawnDivider == 0 && i != 0)
-			{
-				Debug.Log("TileId:" + tileId);
-				
-					SpawnObstacles();
-			}
-		}
-	}
-
-	public void SpawnObstacles()
-	{
-		var lastTile = SpawnedTiles[SpawnedTiles.Count - 1].gameObject;
-		var instance = Instantiate(_obstacle_Straight, lastTile.transform.position, lastTile.transform.rotation);
-	}
-
-	private void SpawnTile(GameObject tile, int formerTileIndex, int spawnChance)
-	{
-		for (int i = 0; i < spawnChance; i++)
-		{
-			var instanceStartpoint = tile.GetComponent<TileContainer>().StartConnector;
-			var formerTileContainer = SpawnedTiles[SpawnedTiles.Count - 1].GetComponent<TileContainer>();
-			var newInstance = Instantiate(tile, formerTileContainer.EndConnector.transform.position, formerTileContainer.EndConnector.transform.rotation);
-			newInstance.transform.SetParent(_sceneRoot);
-			newInstance.name = "tile_" + SpawnedTiles.Count;
-			newInstance.GetComponent<TileContainer>().Id = SpawnedTiles.Count;
-			SpawnedTiles.Add(newInstance);
-		}
-	}
->>>>>>> parent of af5eb60... Release 0.1
 }
