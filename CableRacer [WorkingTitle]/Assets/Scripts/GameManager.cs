@@ -14,8 +14,8 @@ public class GameManager : MonoBehaviour
 		_playerController = FindObjectOfType<PlayerController_Fixed>();
 		_soundManager = FindObjectOfType<SoundManager>();
 
-		_playerController.mySpeedTransform = 0f;
-		_playerController.mySpeedRotation = 0f;
+		_playerController.TransformSpeed = 0f;
+		_playerController.RotationSpeed = 0f;
 
 		_uiManager.TransitionIn();
 		
@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		_playerController.mySpeedTransform = 4f;
-		_playerController.mySpeedRotation = 4f;
+		_playerController.TransformSpeed = 4f;
+		_playerController.RotationSpeed = 4f;
 		_soundManager.GameMusic();
 	}
 }

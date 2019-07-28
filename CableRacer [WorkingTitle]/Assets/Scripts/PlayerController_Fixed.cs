@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Serialization;
 
 public class PlayerController_Fixed : MonoBehaviour
 {
@@ -23,10 +24,10 @@ public class PlayerController_Fixed : MonoBehaviour
 
 	public GameObject CameraRig;
 
-	public float mySpeedTransform = 0.5f;
+	public float TransformSpeed;
 	public float startTimeTransform;
 
-	public float mySpeedRotation = 2f;
+	public float RotationSpeed;
 	public float startTimeRotation;
 
 
@@ -59,7 +60,7 @@ public class PlayerController_Fixed : MonoBehaviour
 		// Lerp Transform
 		//
 		// Distance moved = time * speed.
-		float timerTransform = (Time.time - startTimeTransform) * mySpeedTransform;
+		float timerTransform = (Time.time - startTimeTransform) * TransformSpeed;
 		// Set our position as a fraction of the distance between the markers.
 		transform.position = Vector3.Lerp(startMarker.position, endMarker.position, timerTransform);
 		if (timerTransform >= 1)
@@ -74,15 +75,15 @@ public class PlayerController_Fixed : MonoBehaviour
 
 		// Lerp Rotation
 		//
-		float timerRotation = (Time.time - startTimeRotation) * mySpeedRotation;
+		float timerRotation = (Time.time - startTimeRotation) * RotationSpeed;
 		transform.rotation = Quaternion.Lerp(startMarker.rotation, endMarker.rotation, timerRotation);
 
 		switch(CurrentTileId)
 		{
 			case 30:
 
-				mySpeedRotation = 6f;
-				mySpeedTransform = 6f;
+				RotationSpeed = 6f;
+				TransformSpeed = 6f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -91,8 +92,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 60:
 
-				mySpeedRotation = 7f;
-				mySpeedTransform = 7f;
+				RotationSpeed = 7f;
+				TransformSpeed = 7f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -100,8 +101,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 90:
 
-				mySpeedRotation = 8f;
-				mySpeedTransform = 8f;
+				RotationSpeed = 8f;
+				TransformSpeed = 8f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -112,8 +113,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 120:
 
-				mySpeedRotation = 9f;
-				mySpeedTransform = 9f;
+				RotationSpeed = 9f;
+				TransformSpeed = 9f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -121,8 +122,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 150:
 
-				mySpeedRotation = 10f;
-				mySpeedTransform = 10f;
+				RotationSpeed = 10f;
+				TransformSpeed = 10f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -132,8 +133,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 250:
 
-				mySpeedRotation = 11f;
-				mySpeedTransform = 11f;
+				RotationSpeed = 11f;
+				TransformSpeed = 11f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -141,8 +142,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 400:
 
-				mySpeedRotation = 12f;
-				mySpeedTransform = 12f;
+				RotationSpeed = 12f;
+				TransformSpeed = 12f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -152,8 +153,8 @@ public class PlayerController_Fixed : MonoBehaviour
 			
 			case 600:
 				
-				mySpeedRotation = 13f;
-				mySpeedTransform = 13f;
+				RotationSpeed = 13f;
+				TransformSpeed = 13f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -161,8 +162,8 @@ public class PlayerController_Fixed : MonoBehaviour
 			
 			case 800:
 				
-				mySpeedRotation = 14f;
-				mySpeedTransform = 14f;
+				RotationSpeed = 14f;
+				TransformSpeed = 14f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -170,8 +171,8 @@ public class PlayerController_Fixed : MonoBehaviour
 			
 			case 1000:
 				
-				mySpeedRotation = 18f;
-				mySpeedTransform = 18f;
+				RotationSpeed = 18f;
+				TransformSpeed = 18f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();

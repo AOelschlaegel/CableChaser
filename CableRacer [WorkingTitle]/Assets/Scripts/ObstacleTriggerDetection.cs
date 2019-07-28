@@ -23,7 +23,7 @@ public class ObstacleTriggerDetection : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			IsTriggered = true;
-			_playerController.mySpeedTransform = 0f;
+			_playerController.TransformSpeed = 0f;
 			_sceneManager.LoadGameOverScene();
 			_uIManager.TransitionOut();
 			_soundManager.CollisionSound();
