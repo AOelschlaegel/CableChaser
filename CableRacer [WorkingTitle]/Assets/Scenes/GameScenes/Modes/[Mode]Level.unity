@@ -489,7 +489,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3fde3e3fab6a1274f85de0cb100092a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
   _levels:
   - {fileID: 4200956088861306849, guid: cca5340f7eec5884bb22dbd873bc2997, type: 3}
   - {fileID: 3980518643383880238, guid: 5341acc85e3c0b240a4d91c5564fc2bb, type: 3}
@@ -499,17 +498,10 @@ MonoBehaviour:
   _triggerLeft: {fileID: 671879291}
   _triggerRight: {fileID: 671879290}
   _score: {fileID: 754365067}
-=======
-  _proceduralGenerator: {fileID: 1765930527}
-  _soundManager: {fileID: 0}
-  _triggerLeft: {fileID: 987820089}
-  _triggerRight: {fileID: 1161082878}
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
   CurrentTileId: 0
   LaneId: 0
   startMarker: {fileID: 0}
   endMarker: {fileID: 0}
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
   CameraRig: {fileID: 1594185097}
   TransformSpeed: 0.5
   StartTimeTransform: 0
@@ -522,13 +514,6 @@ RectTransform:
     type: 3}
   m_PrefabInstance: {fileID: 671879289}
   m_PrefabAsset: {fileID: 0}
-=======
-  CameraRig: {fileID: 1738060912}
-  mySpeedTransform: 3
-  startTimeTransform: 0
-  mySpeedRotation: 3
-  startTimeRotation: 0
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 --- !u!1001 &671879289
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -756,6 +741,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1090221234}
+    - target: {fileID: 9011378484147993795, guid: 6c0670c4121f39e46a3164a1dda791bc,
+        type: 3}
+      propertyPath: m_AdditionalShaderChannelsFlag
+      value: 25
+      objectReference: {fileID: 0}
     - target: {fileID: 5577883600209898939, guid: 6c0670c4121f39e46a3164a1dda791bc,
         type: 3}
       propertyPath: m_ForceIntoRT
@@ -763,7 +753,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6c0670c4121f39e46a3164a1dda791bc, type: 3}
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
 --- !u!114 &671879290 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 6951211193245473921, guid: 6c0670c4121f39e46a3164a1dda791bc,
@@ -969,8 +958,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 754365064}
   m_CullTransparentMesh: 0
-=======
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 --- !u!1 &932121185
 GameObject:
   m_ObjectHideFlags: 0
@@ -1034,7 +1021,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 2f0c98cc0b661ea49b1536fe403411d1, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.4
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1043,7 +1030,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 58539.855
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1130,7 +1117,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.9
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1139,7 +1126,7 @@ AudioSource:
   Priority: 173
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 33843.613
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -1458,84 +1445,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _mainColor: {fileID: 2100000, guid: 74f0f743ddb6962488865bbfc6d48255, type: 2}
   _obstacleColor: {fileID: 2100000, guid: 3d9c1cc66c462254ea3cd6f50d46a985, type: 2}
-<<<<<<< HEAD:CableRacer [WorkingTitle]/Assets/Scenes/GameScenes/Modes/[Mode]Level.unity
   TransitionSpeed: 10
   MainColorSwitch: 1
   ObstacleSwitch: 0
-=======
---- !u!1 &1738060912 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5577883600208125493, guid: 6c0670c4121f39e46a3164a1dda791bc,
-    type: 3}
-  m_PrefabInstance: {fileID: 671879289}
-  m_PrefabAsset: {fileID: 0}
---- !u!1 &1765930526
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1765930528}
-  - component: {fileID: 1765930527}
-  m_Layer: 0
-  m_Name: ProceduralGenerator
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1765930527
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765930526}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5a9810a7ed4fbbc4484b67c2d720c533, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _straight: {fileID: 2454061189487121750, guid: 414a905b1037fda46b461fe9d24d3b20,
-    type: 3}
-  _curve_Right: {fileID: 3449750521238616168, guid: 290b9e9a37a5e3a418c47a54f1a3db4d,
-    type: 3}
-  _curve_Left: {fileID: 5402673073469498609, guid: 3e1df30165a3f954fb569ac9aede746a,
-    type: 3}
-  _obstacle_Left: {fileID: 1255574950120665148, guid: f4e2c781a4c6b3345931c9ccaf1c7927,
-    type: 3}
-  _obstacle_Right: {fileID: 3575468613725886429, guid: d20a06c7de728374b99b99507bfe685a,
-    type: 3}
-  _obstacle_Straight: {fileID: 6498942925358232829, guid: df69e022686802147810f2ee247fd4bf,
-    type: 3}
-  _playerController: {fileID: 618154383}
-  SpawnedTiles: []
-  SpawnedObstacles: []
-  _sceneRoot: {fileID: 194992400}
-  SpawnCount: 15
-  DeleteThreshold: 30
-  CurveSpawnChance: 4
-  StraightSpawnChance: 18
-  LastDeletedIndex: 0
-  ObstacleSpawnDivider: 2
-  division: 2
---- !u!4 &1765930528
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1765930526}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
->>>>>>> parent of af5eb60... Release 0.1:CableRacer [WorkingTitle]/Assets/Scenes/GameScene.unity
 --- !u!1 &1974060901 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5577883600208105971, guid: 6c0670c4121f39e46a3164a1dda791bc,
@@ -1788,7 +1700,7 @@ PrefabInstance:
     - target: {fileID: 7273015502120278945, guid: 0808e01b2bb3d874f8ddb2a09d3f7178,
         type: 3}
       propertyPath: m_Alpha
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0808e01b2bb3d874f8ddb2a09d3f7178, type: 3}
