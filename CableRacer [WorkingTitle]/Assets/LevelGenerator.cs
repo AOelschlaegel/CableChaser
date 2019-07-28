@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using CurvedUI;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
@@ -83,12 +82,6 @@ public class LevelGenerator : MonoBehaviour
 					break;
 			}
 		}
-
-		for (int i = 0; i < _spawnedTiles.Count; i++)
-		{
-			var reflectionProbe = _spawnedTiles[i].gameObject.GetComponentInChildren<ReflectionProbe>();
-			reflectionProbe.gameObject.SetActive(false);
-		}
 	}
 
 	[ContextMenu("Create Obstacles")]
@@ -99,7 +92,7 @@ public class LevelGenerator : MonoBehaviour
 		
 		for (int i = 0; i < Length; i++)
 		{
-			var modulo = _obstacleSpawnDefaultModulo;
+			var modulo = _obstacleSpawnDefaultModulo - Difficulty;
 
 			if (i % modulo == 0 && i != 0)
 			{
@@ -109,25 +102,6 @@ public class LevelGenerator : MonoBehaviour
 				instance.transform.SetParent(_levelObstaclesRoot);
 				_spawnedObstacles.Add(instance);
 				obstacleCount++;
-			}
-		}
-
-		foreach (Transform obstacle in _levelObstaclesRoot)
-		{
-			var obstacles = new List<GameObject>();
-			
-			foreach (Transform obst in obstacle)
-			{
-				obstacles.Add(obst.gameObject);
-			}
-			
-			for (int x = 0; x < 4; x++)
-			{
-				for (int i = 6; i > Difficulty; i--)
-				{
-					var rand = Random.Range(0, 6);
-					obstacles[rand].SetActive(false);
-				}
 			}
 		}
 	}
@@ -149,7 +123,13 @@ public class LevelGenerator : MonoBehaviour
 	{
 		if (_levelSceneRoot.childCount > 0)
 		{
-			DeleteObstacles();
+			for (int i = 0; i < 20; i++)
+			{
+				foreach (Transform tile in _levelObstaclesRoot)
+				{
+					DestroyImmediate(tile.gameObject);
+				}
+			}
 
 			for (int i = 0; i < 20; i++)
 			{
@@ -157,19 +137,6 @@ public class LevelGenerator : MonoBehaviour
 				{
 					DestroyImmediate(tile.gameObject);
 				}
-			}
-		}
-	}
-
-	[ContextMenu("Delete Obstacles")]
-
-	private void DeleteObstacles()
-	{
-		for (int i = 0; i < 20; i++)
-		{
-			foreach (Transform tile in _levelObstaclesRoot)
-			{
-				DestroyImmediate(tile.gameObject);
 			}
 		}
 	}
