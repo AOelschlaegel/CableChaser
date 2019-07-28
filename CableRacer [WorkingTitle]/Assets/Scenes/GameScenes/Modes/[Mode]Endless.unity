@@ -1631,11 +1631,6 @@ PrefabInstance:
       propertyPath: playerControllerEndless
       value: 
       objectReference: {fileID: 618154383}
-    - target: {fileID: 1855647537739235540, guid: 1cd0c98582b040d47bc9a8727d2502ba,
-        type: 3}
-      propertyPath: PoolSize
-      value: 100
-      objectReference: {fileID: 0}
     - target: {fileID: 1855647537739235563, guid: 1cd0c98582b040d47bc9a8727d2502ba,
         type: 3}
       propertyPath: m_LocalPosition.x
