@@ -42,15 +42,14 @@ public class ObstacleTriggerDetection : MonoBehaviour
 			{
 				_playerControllerEndless.TransformSpeed = 0f;
 				PlayerPrefs.SetInt("EndlessScore", _playerControllerEndless.CurrentTileId * 10);
-				_sceneManager.LoadGameOverScene_Endless();
 			}
 			else
 			{
 				_playerControllerLevel.TransformSpeed = 0f;
 				PlayerPrefs.SetInt("LevelScore", _playerControllerLevel.CurrentTileId * 10);
-				_sceneManager.LoadGameOverScene_Level();
 			}
 			
+			_sceneManager.LoadGameOverScene();
 			_uIManager.TransitionOut();
 			_soundManager.CollisionSound();
 		}

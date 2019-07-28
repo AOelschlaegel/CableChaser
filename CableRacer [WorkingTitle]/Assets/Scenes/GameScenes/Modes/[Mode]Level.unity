@@ -206,7 +206,6 @@ MonoBehaviour:
   gazeTimedClickProgressImage: {fileID: 0}
   worldSpaceMouseSensitivity: 1
   usedHand: 1
-  controllerTransformOverride: {fileID: 0}
 --- !u!1 &151320848
 GameObject:
   m_ObjectHideFlags: 0
