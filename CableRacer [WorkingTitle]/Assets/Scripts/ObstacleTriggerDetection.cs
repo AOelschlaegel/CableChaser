@@ -6,28 +6,14 @@ public class ObstacleTriggerDetection : MonoBehaviour
 {
 	public bool IsTriggered = false;
 	private GameSceneManager _sceneManager;
-	private PlayerController_Endless _playerControllerEndless;
-	private PlayerController_Level _playerControllerLevel;
+	private PlayerController_Fixed _playerController;
 	private UIManager _uIManager;
 	private SoundManager _soundManager;
-	private GameManager _gameManager;
 
 	private void Start()
 	{
 		_sceneManager = FindObjectOfType<GameSceneManager>();
-		_gameManager = FindObjectOfType<GameManager>();
-
-		if (_gameManager.EndlessMode)
-		{
-			_playerControllerEndless = FindObjectOfType<PlayerController_Endless>();
-		}
-		
-		else
-		{
-			_playerControllerLevel = FindObjectOfType<PlayerController_Level>();
-		}
-		
-		
+		_playerController = FindObjectOfType<PlayerController_Fixed>();
 		_uIManager = FindObjectOfType<UIManager>();
 		_soundManager = FindObjectOfType<SoundManager>();
 	}
@@ -37,21 +23,12 @@ public class ObstacleTriggerDetection : MonoBehaviour
 		if(other.tag == "Player")
 		{
 			IsTriggered = true;
-
-			if (_gameManager.EndlessMode)
-			{
-				_playerControllerEndless.TransformSpeed = 0f;
-				PlayerPrefs.SetInt("EndlessScore", _playerControllerEndless.CurrentTileId * 10);
-			}
-			else
-			{
-				_playerControllerLevel.TransformSpeed = 0f;
-				PlayerPrefs.SetInt("LevelScore", _playerControllerLevel.CurrentTileId * 10);
-			}
-			
+			_playerController.mySpeedTransform = 0f;
 			_sceneManager.LoadGameOverScene();
 			_uIManager.TransitionOut();
 			_soundManager.CollisionSound();
+
+			PlayerPrefs.SetInt("Score", _playerController.CurrentTileId * 10);
 		}
 	}
 }

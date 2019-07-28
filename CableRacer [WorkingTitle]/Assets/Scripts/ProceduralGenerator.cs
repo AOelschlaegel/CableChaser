@@ -12,7 +12,7 @@ public class ProceduralGenerator : MonoBehaviour
 	[SerializeField] private GameObject _obstacle_Right;
 	[SerializeField] private GameObject _obstacle_Straight;
 
-	[SerializeField] private PlayerController_Endless playerControllerEndless;
+	[SerializeField] private PlayerController_Fixed _playerController;
 
 	private List<GameObject> _obstaclesLeft = new List<GameObject>();
 	private List<GameObject> _obstaclesRight = new List<GameObject>();
@@ -57,7 +57,7 @@ public class ProceduralGenerator : MonoBehaviour
 
 	void Update()
 	{
-		var tileId = playerControllerEndless.CurrentTileId;
+		var tileId = _playerController.CurrentTileId;
 
 		if (tileId > SpawnedTiles.Count - DeleteThreshold)
 		{
