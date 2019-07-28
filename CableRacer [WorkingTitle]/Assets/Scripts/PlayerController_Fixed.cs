@@ -81,8 +81,8 @@ public class PlayerController_Fixed : MonoBehaviour
 		{
 			case 30:
 
-				mySpeedRotation = 4f;
-				mySpeedTransform = 4f;
+				mySpeedRotation = 6f;
+				mySpeedTransform = 6f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -91,8 +91,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 60:
 
-				mySpeedRotation = 5f;
-				mySpeedTransform = 5f;
+				mySpeedRotation = 7f;
+				mySpeedTransform = 7f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -100,8 +100,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 90:
 
-				mySpeedRotation = 6f;
-				mySpeedTransform = 6f;
+				mySpeedRotation = 8f;
+				mySpeedTransform = 8f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -112,8 +112,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 120:
 
-				mySpeedRotation = 7f;
-				mySpeedTransform = 7f;
+				mySpeedRotation = 9f;
+				mySpeedTransform = 9f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -121,8 +121,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 150:
 
-				mySpeedRotation = 8f;
-				mySpeedTransform = 8f;
+				mySpeedRotation = 10f;
+				mySpeedTransform = 10f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -132,8 +132,8 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 250:
 
-				mySpeedRotation = 9f;
-				mySpeedTransform = 9f;
+				mySpeedRotation = 11f;
+				mySpeedTransform = 11f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
@@ -141,14 +141,42 @@ public class PlayerController_Fixed : MonoBehaviour
 
 			case 400:
 
-				mySpeedRotation = 10f;
-				mySpeedTransform = 10f;
+				mySpeedRotation = 12f;
+				mySpeedTransform = 12f;
 
 				_colorManager.ChangeMainColor();
 				_colorManager.ChangeObstacleColor();
 
 				_proceduralGenerator.ObstacleSpawnDivider = 6;
 				break;
+			
+			case 600:
+				
+				mySpeedRotation = 13f;
+				mySpeedTransform = 13f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+			
+			case 800:
+				
+				mySpeedRotation = 14f;
+				mySpeedTransform = 14f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+			
+			case 1000:
+				
+				mySpeedRotation = 18f;
+				mySpeedTransform = 18f;
+
+				_colorManager.ChangeMainColor();
+				_colorManager.ChangeObstacleColor();
+				break;
+			
 		}
 	}
 
