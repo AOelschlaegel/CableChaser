@@ -12,6 +12,7 @@ public class ProceduralGenerator : MonoBehaviour
 	[SerializeField] private GameObject _obstacle_Right;
 	[SerializeField] private GameObject _obstacle_Straight;
 	[SerializeField] private GameObject _obstacle_Dynamic;
+	[SerializeField] private GameObject _obstacle_Dynamic_fast;
 
 	[SerializeField] private PlayerController_Fixed _playerController;
 
@@ -127,10 +128,13 @@ public class ProceduralGenerator : MonoBehaviour
 	{
 		var lastTile = SpawnedTiles[SpawnedTiles.Count - 1].gameObject;
 
-		var rand = Random.Range(0, 4);
+		var rand = Random.Range(0, 14);
 		
 
-		if (rand == 3)
+		if (rand == 4 || rand == 2)
+		{
+			var instance = Instantiate(_obstacle_Dynamic_fast, lastTile.transform.position, lastTile.transform.rotation);
+		} else if (rand == 7)
 		{
 			var instance = Instantiate(_obstacle_Dynamic, lastTile.transform.position, lastTile.transform.rotation);
 		}

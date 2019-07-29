@@ -1074,10 +1074,10 @@ MonoBehaviour:
     m_Bits: 256
   stopNaNPropagation: 1
   finalBlitToCameraTarget: 1
-  antialiasingMode: 2
+  antialiasingMode: 3
   temporalAntialiasing:
     jitterSpread: 0.8
-    sharpness: 2
+    sharpness: 1.6
     stationaryBlending: 0.8
     motionBlending: 0.8
   subpixelMorphologicalAntialiasing:
@@ -1259,6 +1259,8 @@ MonoBehaviour:
   _obstacle_Straight: {fileID: 6498942925358232829, guid: df69e022686802147810f2ee247fd4bf,
     type: 3}
   _obstacle_Dynamic: {fileID: 337889810150714594, guid: de56ce3987a5c4544a3ae974b23584e0,
+    type: 3}
+  _obstacle_Dynamic_fast: {fileID: 337889810150714594, guid: af1967a28c4455245bf21be0ca159895,
     type: 3}
   _playerController: {fileID: 618154383}
   SpawnedTiles: []

@@ -7,7 +7,8 @@ public class DynamicObstacleController : MonoBehaviour
     public ObstacleContainer _obstacleContainer;
     public List<GameObject> Obstacles = new List<GameObject>();
     public List<GameObject> ActiveObstacles = new List<GameObject>();
-
+    public float SpeedDivider;
+    
     public int CurrentPos;
 
     void Start()
@@ -23,7 +24,7 @@ public class DynamicObstacleController : MonoBehaviour
         }
 
         Obstacles = _obstacleContainer._obstacles;
-        InvokeRepeating("ChangePos", 0.408f*1, 0.408f*1);
+        InvokeRepeating("ChangePos", 0.408f*SpeedDivider, 0.408f*SpeedDivider);
     }
 
     private void ChangePos()

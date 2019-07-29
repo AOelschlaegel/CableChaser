@@ -30,8 +30,8 @@ public class GameManager : MonoBehaviour
 
 	public void StartGame()
 	{
-		_playerController.TransformSpeed = 4f;
-		_playerController.RotationSpeed = 4f;
+		_playerController.TransformSpeed = 6f;
+		_playerController.RotationSpeed = 6f;
 		_soundManager.GameMusic();
 	}
 }
